@@ -107,5 +107,15 @@ if answer is 3:
             print ("Tyrone the Gaurdsman: Muh Dick (You are denied intry into Charlottesvisle, you are attacked by the gaurdsmen)")
             #Battle Function Here, 2 Gaurds#
             factiondispo(wakandandispo,1)
-
+print ("You make it in to the city, though not unscathed. You must find a doctor to heal your health, and cialis potions to restore your dong. The city before you is nothing like what you remember. The streets are dirty, and even more full of potholes than usual. The potholes had been filled in by constant street shitting from the Wakandans. A man dressed in rags approaches you")
+print ("Bonermere: Hrogar, dont tell me you dont recognize your old friend Bonermere")
+answer = 0
+while answer > 3 or answer < 1:
+    print ("1. Its good to see you, Bonermere")
+    print ("2. My old friend Bonermere. You were second only to me in town raping")
+    print ("3. I am injured, Bonermere, and my dong is depleted. I need medecine")
+    print ("4. *Show DONG*")
+    answer = int(input())
+if answer ==1:
+    print ("Bonermere: It has been too long, Chartlottesvisle has become a shit hole. We must get you to a doctor. There is only one left in town, I will take you to him, for a price"
 
