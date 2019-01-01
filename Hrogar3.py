@@ -7,6 +7,24 @@ for char in words:
         sleep(0.00)
         sys.stdout.write(char)
         sys.stdout.flush()
+##def racewar(Battle function). Keep monster stats inside battle function so only things to import are monster type and player stats?##
+def factiondispo (faction,change):
+        if (faction+change) > 2 or (faction+change) < -2:
+                break
+        if (faction+change) < 3 or (faction+change) > -2:
+                faction = faction + change
+                break
+def playerstats ():
+    print ("Name:     Hrogar")
+    print ("Race:       Nord")
+    print ("Level:        ", level)
+    print ("Max Health:   ", 10 * STR + math.floor(DNG/2))
+    print ("Intelligence: ", INT)
+    print ("Strength:     ", STR)
+    print ("DONG:         ", DNG)
+playerstats()
+
+#Game Start, to be made function later#
 race = 0
 level = 0
 INT = 0
@@ -23,7 +41,6 @@ wipipodispo = 1
 print ( )
 race = int(input("Pick your race (Nord=1, Wakandan = 0.6, Longnose = 6000000, Liberal Nord = 0:  "))
 
-##def racewar(Battle function). Keep monster stats inside battle function so only things to import are monster type and player stats?##
 
 print ()
 while race is not 1:
@@ -31,17 +48,6 @@ while race is not 1:
 if race == 1:
     print ("Oh, so you are a Nord then? The Longnoses and Wakandans wont take kindly to you")
     print ()
-def playerstats ():
-    print ("Name:     Hrogar")
-    print ("Race:       Nord")
-    print ("Level:        ", level)
-    print ("Max Health:   ", 10 * STR + math.floor(DNG/2))
-    print ("Intelligence: ", INT)
-    print ("Strength:     ", STR)
-    print ("DONG:         ", DNG)
-playerstats()
-
-#Game Start, to be made function later#
 AP = 16
 print ("Points Left: ", AP)
 while INT < 1 or INT > 10:
