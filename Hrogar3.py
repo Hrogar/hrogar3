@@ -158,17 +158,20 @@ if answer ==4:
                 print ("Bonermere: I can see that prison has not done anything to dampen your spirits, haha")
         if DNG <6:
                 print ("Bonermere: You seem....smaller than I remember")
+answer = 0
 while answer > 1 or answer < 1:
     print ("1. I must see a doctor soon. I have 70,000 Indian Rupees with me to pay him with. I had to do unspeakable things in prison to get them")
     answer = int(input())
 print ("Bonermere: Hrogar, since the Wakandans have invaded, Rupees are no longer accepted as currency in Charlottesvisle. We only are allowed to take out loans from the Longnoses and trade the loans as currency")
 print ()
 print ("OY VEY! DID SOMEBODY SAY LOANS?")
+answer = 0
 while answer > 2 or answer < 1:
     print ("1. ......")
     print ("2. Who said that??? Show yourself you nasally voiced fiend!")
              answer = int(input())
 print ("Amanda (((Bynes))): It is I! Amanda Bynes of the Longnoses. Its a shame that a Nord such as yourself has come to Charlottesvisle without any loans, here, have 20 of them. No need to thank me just pay me back later with a low interest rate of 6,000,000%")
+answer = 0
 while answer > 3 or answer < 1:
     print ("1. Fine, I will take your filthy loans")
     print ("2. 20 whole loans? Sign me up!")
@@ -178,5 +181,5 @@ while answer > 3 or answer < 1:
     print ("4. I will never take your fake banker's money!")     
     print()
     print ("Amanda (((Bynes))): You have to take my loans, Nord")
-
+answer = 0
            
