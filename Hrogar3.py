@@ -169,7 +169,7 @@ answer = 0
 while answer > 2 or answer < 1:
     print ("1. ......")
     print ("2. Who said that??? Show yourself you nasally voiced fiend!")
-             answer = int(input())
+    answer = int(input())
 print ("Amanda (((Bynes))): It is I! Amanda Bynes of the Longnoses. Its a shame that a Nord such as yourself has come to Charlottesvisle without any loans, here, have 20 of them. No need to thank me just pay me back later with a low interest rate of 6,000,000%")
 answer = 0
 while answer > 3 or answer < 1:
@@ -177,19 +177,19 @@ while answer > 3 or answer < 1:
     print ("2. 20 whole loans? Sign me up!")
     if INT >7:
         print("3. How about 100 loans and I promise to touch myself to Wakandan cave paintings later?")
-             answer = int(input())
     print ("4. I will never take your fake banker's money!")     
+    answer = int(input())
     print()
     print ("Amanda (((Bynes))): You have to take my loans, Nord")
 if answer is 1:
         loans=20
-                print("Loans: ",loans)
+        print("Loans: ",loans)
 if answer is 2:
         loans=20
-                print("Loans: ",loans)
+        print("Loans: ",loans)
 if answer is 3:
         loans=100
-                print("Loans: ",loans)
+        print("Loans: ",loans)
 ##Will need to add loans variable to Json File##
 answer = 0
            
