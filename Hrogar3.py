@@ -181,5 +181,15 @@ while answer > 3 or answer < 1:
     print ("4. I will never take your fake banker's money!")     
     print()
     print ("Amanda (((Bynes))): You have to take my loans, Nord")
+if answer is 1:
+        loans=20
+        print("Loans: ",loans")
+if answer is 2:
+        loans=20
+        print("Loans: ",loans")
+if answer is 3:
+        loans=100
+        print("Loans: ",loans")
+##Will need to add loans variable to Json File##
 answer = 0
            
