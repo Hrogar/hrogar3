@@ -3,7 +3,7 @@ import math
 import sys
 import json
 from pprint import pprint
-
+random.seed(a=None, version=2)
 from time import sleep
 
 def factiondispo (faction,change):
@@ -121,7 +121,58 @@ def beanman():
                     if answer == 5:
                         print ("You leave the shop")
                         break
-                        
+##racewar function not finished##
+def racewar(enemy,amount):
+        print ("You have been challenged to battle by ", amount, enemy)
+        if enemy = "straycat":
+                enemyhp=30*amount
+                enemystr=5*amount
+                enemydng=1*amount
+                enemyxp=1*amount
+        global hp
+        global health
+        global dong
+        global dng
+        global cialis
+        global ritalin
+        global level
+        answer = 0
+        battleoutcome = 0
+        while battleoutcome == 0:
+            print ("Health:", hp, , "/", health)
+            print ("DONG:", dong, , "/", DNG)
+            print ("1. Use Shank")
+            print ("2. Use Cialis for DONG (",cialis, ") remaining")
+            print ("3. Use Ritalin for health (",ritalin, ") remaining")
+            print ("4. Use DONG for special attack")
+            answer = int(input())
+            if answer == 1:
+                damage = random.randrange(0,STR+1,1)
+                enemyhp=enemyhp-damage
+                print ("Shank damage: ", damage)
+            if answer ==2:
+                    if cialis > 0:
+                        dong=dong+5
+                        cialis = cialis - 1
+                        if dong > DNG:
+                                dong = DNG
+                        print ("DONG restored to ", dong, "inches")
+                    if cialis = 0:
+                        print ("You have no cialis")
+            if answer ==3:
+                    if ritalin > 0:
+                        hp=hp+50
+                        ritalin = ritalin - 1
+                        if hp > health:
+                                hp = health
+                        print ("health restored to ", hp, "points")
+                    if ritalin = 0:
+                        print ("You have no ritalin")
+            if answer == 4:
+                damage = random.randrange(0,(STR+1)*(DNG+1),1)
+                enemyhp=enemyhp-damage
+                print ("You use your dong for ", damage, "damage")
+                
 #Chapter 0#
 words = "In the Kangdom of Buttholia, a scourge now grips the land. The Wakandans march accross the Buttholian wheatfields and bring terror and EBOLA to the land. Aided by the Longnoses, the Wakandans have been able to conquer the disputed city of Charlottesvisle, which they have renamed to Section Eight. You are Hrogar, and what you have done in your past does not matter, but if you must know, you are a former prison inmate and town rapist, who was wrongfully imprisoned for being too good at being town rapist. After escaping prison, you have traveled back to your hometown of Charlottesvisle, only to find that it is now Section Eight. The time has Cum for the queefer to awaken."
 for char in words:
