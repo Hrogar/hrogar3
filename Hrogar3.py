@@ -156,12 +156,13 @@ AP = AP - STR
 loans = 0
 cialis = 0
 ritalin = 0
+health = 0 * STR + math.floor(DNG/2)
 hp = health
 dong = DNG
 playerstats()
 #End Chapter 0#
 
-saveGame(1)
+##saveGame(1)##
 #Chapter 1#
 print ()
 print ("CHAPTER 1: City Gates")
@@ -234,24 +235,24 @@ while answer > 3 or answer < 1:
     print()
     print ("Amanda (((Bynes))): You have to take my loans, Nord")
 if answer is 1:
-        loans=20
-        print("Loans: ",loans)
+        loans = 20
+        print("Loans: ", loans)
 if answer is 2:
-        loans=20
+        loans = 20
         print("Loans: ",loans)
 if answer is 3:
         if INT >7:
-                loans=100
-                print("Loans: ",loans)
+                loans=  100
+                print("Loans: ", loans)
         if INT <8:
-            loans=20
+            loans = 20
             print ("Nice try, only 20 for you Nord")
-            print ("Loans: ",loans)  
+            print ("Loans: ", loans)  
 answer = 0
-if loans ==100:
+if loans == 100:
         print ("Bonermere: 100 whole loans? You will be able to by much, but you are going to get completely diddles when the longnoses decide to collet. He who is the richest in Charlottesvisle is now paradoxically the poorest, because of these damned Longnose loans")
-if loans ==2:
-        print ("Bonermere: 100 loans? You got off easy, but will still be diddled when the longnoses decide to collet. He who is the richest in Charlottesvisle is now paradoxically the poorest, because of these damned Longnose loans")
+if loans == 20:
+        print ("Bonermere: 20 loans? You got off easy, but will still be diddled when the longnoses decide to collet. He who is the richest in Charlottesvisle is now paradoxically the poorest, because of these damned Longnose loans")
 answer = 0
 while answer > 2 or answer < 1:
     print ("1. I dont know how much more of this my DONG can take. Let us go to doctor to get some cialis")
@@ -261,4 +262,9 @@ print()
 print ("You arrive at the a shack near the center of town. A rusted and siphalitic sign reads BEANMAN:MEDICAL RITALIN AND CIALIS")
 print ("As you enter the shop, you are greeted by a portly hispanic making salads and sweating profusely")
 beanman()
-        
+print ()
+print ("Bonermere: let us rest, there will be much to do tomorrow")
+print ()
+print ("End of Chapter 1")
+##End of Chapter 2##
+##saveGame(2)##
