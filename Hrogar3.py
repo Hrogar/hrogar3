@@ -246,6 +246,7 @@ answer = 0
 while answer > 2 or answer < 1:
     print ("1. I dont know how much more of this my DONG can take. Let us go to doctor to get some cialis")
     print ("2. Clearly there is much work to do here in Charlottesvisle, lets get some meds")
+    answer = int(input())
 print()
 print ("You arrive at the a shack near the center of town. A rusted and siphalitic sign reads BEANMAN:MEDICAL RITALIN AND CIALIS")
 print ("As you enter the shop, you are greeted by a portly hispanic making salads and sweating profusely")
