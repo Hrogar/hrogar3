@@ -68,6 +68,11 @@ def saveGame(chapter = 0):
     with open('saveGame.json', 'w') as outfile:
         json.dump(gameData, outfile)
 def beanman():
+        global loans
+        global cialis
+        global ritalin
+        global hp
+        global dong
         if wipipodispo == -2:
                 print ("Beanman: I dont serve traitors like you")
         if wipipodispo > -2:
@@ -75,7 +80,7 @@ def beanman():
                 while answer > 5 or answer < 5:
                     print ("Beanman: Well hello there, you look like you could use some supplies, take a look at these wares")
                     print ()
-                    print ("Current Loans: ",loans)
+                    print ("Loans:       ", loans)
                     print ()
                     print ("1. [1000000 Loans] *Buy bulk pack of infinite Cialis*")
                     print ("2. [15 Loans] *Buy Ritalin* Can be used to restore 50 Health)")
@@ -89,24 +94,33 @@ def beanman():
                         if loans > 14:
                                 ritalin = ritalin + 1
                                 loans = loans - 15
+                                print ("*You receive a ritalin*")
+                                print ()
                         if loans < 15:
                                 print ("Beanman: You poor bastard, come back with some loans from the Longnoses")
+                                print ()
                     if answer == 3:
                         if loans > 4:
                                 cialis = cialis + 1
                                 loans = loans - 5
+                                print ("*You receive a cialis*")
+                                print ()
                         if loans < 5:
                                 print ("Beanman: You poor bastard, come back with some loans from the Longnoses")
+                                print ()
                     if answer == 4:
                         if loans > 2:
                                 hp = health
                                 dong = DNG
                                 loans = loans - 3
+                                print ("*You go to work on that goat, youre a goddamned picasso of goat diddling*")
+                                print ()
                         if loans < 5:
                                 print ("Beanman: You poor bastard, come back with some loans from the Longnoses")
+                                print()
                     if answer == 5:
                         print ("You leave the shop")
-                        return ritalin, health, dong, loans, cialis
+                        break
                         
 #Chapter 0#
 words = "In the Kangdom of Buttholia, a scourge now grips the land. The Wakandans march accross the Buttholian wheatfields and bring terror and EBOLA to the land. Aided by the Longnoses, the Wakandans have been able to conquer the disputed city of Charlottesvisle, which they have renamed to Section Eight. You are Hrogar, and what you have done in your past does not matter, but if you must know, you are a former prison inmate and town rapist, who was wrongfully imprisoned for being too good at being town rapist. After escaping prison, you have traveled back to your hometown of Charlottesvisle, only to find that it is now Section Eight. The time has Cum for the queefer to awaken."
@@ -129,29 +143,29 @@ if race == 1:
 AP = 16
 print ("Points Left: ", AP)
 while INT < 1 or INT > 10:
-    INT = int(input("Pick intelligence(0 to 10)"))
+    INT = int(input("Pick intelligence(1 to 10)"))
 AP = AP - INT
 print ("Points Left: ", AP)
 print ()
 playerstats()
 if AP < 10:
     while STR < 1 or STR > AP:
-        print ("Pick strength (0 to",AP,")")
+        print ("Pick strength (1 to",AP,")")
         STR = int(input())
 if AP > 9:
     while STR < 1 or STR > 10:
-        STR = int(input("Pick strength(0 to 10)"))
+        STR = int(input("Pick strength(1 to 10)"))
 AP = AP - STR
 print ("Points Left: ", AP)
 print ()
 playerstats()
 if AP < 10:
     while DNG < 1 or DNG > AP:
-        print ("Pick DONG (0 to",AP,")")
+        print ("Pick DONG (1 to",AP,")")
         DNG = int(input())
 if AP > 9:
     while DNG < 1 or DNG > 10:
-        DNG = int(input("Pick DONG(0 to 10)"))
+        DNG = int(input("Pick DONG(1 to 10)"))
 AP = AP - STR
 loans = 0
 cialis = 0
@@ -266,5 +280,6 @@ print ()
 print ("Bonermere: let us rest, there will be much to do tomorrow")
 print ()
 print ("End of Chapter 1")
+playerstats()
 ##End of Chapter 2##
 ##saveGame(2)##
