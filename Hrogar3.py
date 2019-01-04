@@ -30,6 +30,8 @@ chapter = loaded["chapter"] if len(loaded) > 0 else 0
 INT = loaded["intelligence"] if len(loaded) > 0 else 0
 STR = loaded["strength"] if len(loaded) > 0 else 0
 DNG = loaded["thisValIsNotForDong"] if len(loaded) > 0 else 0
+hp = loaded["gigaslore"] if len(loaded) > 0 else 0
+dong = loaded["currentdongpoints"] if len(loaded) > 0 else 0
 y=1
 yes = 1
 n = 2
@@ -61,6 +63,8 @@ def saveGame(chapter = 0):
     gameData["cutPoints"] = longnosedispo
     gameData["uncutPoints"] = wipipodispo
     gameData["sheckels"] = loans
+    gameData["gigaslore"] = hp
+    gameData["currentdongpoints"] = dong
     with open('saveGame.json', 'w') as outfile:
         json.dump(gameData, outfile)
 def beanman():
