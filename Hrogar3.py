@@ -5,12 +5,6 @@ import json
 from pprint import pprint
 
 from time import sleep
-words = "In the Kangdom of Buttholia, a scourge now grips the land. The Wakandans march accross the Buttholian wheatfields and bring terror and EBOLA to the land. Aided by the Longnoses, the Wakandans have been able to conquer the disputed city of Charlottesvisle, which they have renamed to Section Eight. You are Hrogar, and what you have done in your past does not matter, but if you must know, you are a former prison inmate and town rapist, who was wrongfully imprisoned for being too good at being town rapist. After escaping prison, you have traveled back to your hometown of Charlottesvisle, only to find that it is now Section Eight. The time has Cum for the queefer to awaken."
-for char in words:
-        sleep(0.00)
-        sys.stdout.write(char)
-        sys.stdout.flush()
-##def racewar(Battle function). Keep monster stats inside battle function so only things to import are monster type and player stats?##
 
 def factiondispo (faction,change):
         if (faction+change) > 2 or (faction+change) < -2:
@@ -29,6 +23,7 @@ def loadGame():
 
 loaded = loadGame()
 
+loans = loaded["sheckels"] if len(loaded) > 0 else 0
 race = loaded["race"] if len(loaded) > 0 else 0
 level = loaded["level"] if len(loaded) > 0 else 0
 chapter = loaded["chapter"] if len(loaded) > 0 else 0
@@ -41,12 +36,13 @@ n = 2
 no = 2
 wakandandispo = loaded["ebtPoints"] if len(loaded) > 0 else -1
 longnosedispo = loaded["cutPoints"] if len(loaded) > 0 else -2
-wipipodispo = loaded["uncutPoints"] if len(loaded) > 0 else 1
+wipipodispo = loaded["uncutPoints"] if len(loaded) > 0 else 2
 
 def playerstats ():
     print ("Name:     Hrogar")
     print ("Race:       Nord")
-    print ("Level:        ", level)
+    print ("Loans:       ", loans)
+    print ("Level:        ", math.floor(level/10))
     print ("Max Health:   ", 10 * STR + math.floor(DNG/2))
     print ("Intelligence: ", INT)
     print ("Strength:     ", STR)
@@ -64,10 +60,57 @@ def saveGame(chapter = 0):
     gameData["ebtPoints"] = wakandandispo
     gameData["cutPoints"] = longnosedispo
     gameData["uncutPoints"] = wipipodispo
+    gameData["sheckels"] = loans
     with open('saveGame.json', 'w') as outfile:
         json.dump(gameData, outfile)
-
-#Game Start, to be made function later#
+def beanman():
+        if wipipodispo == -2:
+                print ("Beanman: I dont serve traitors like you")
+        if wipipodispo > -2:
+                answer = 0
+                while answer > 5 or answer < 5:
+                    print ("Beanman: Well hello there, you look like you could use some supplies, take a look at these wares")
+                    print ()
+                    print ("Current Loans: ",loans)
+                    print ()
+                    print ("1. [1000000 Loans] *Buy bulk pack of infinite Cialis*")
+                    print ("2. [15 Loans] *Buy Ritalin* Can be used to restore 50 Health)")
+                    print ("3. [5 Loans] *Buy Cialis* (Can be used to restore DONG)")
+                    print ("4. [3 Loans] *Diddle Communal Goat* (Restores Health and DONG)")
+                    print ("5. *Show DONG*(and then leave the shop)")
+                    answer = int(input())
+                    if answer ==1:
+                        print ("Beanman: You trying to get a heart attack? You can afford it anyways")
+                    if answer ==2:
+                        if loans > 14:
+                                ritalin = ritalin + 1
+                                loans = loans - 15
+                        if loans < 15:
+                                print ("Beanman: You poor bastard, come back with some loans from the Longnoses")
+                    if answer == 3:
+                        if loans > 4:
+                                cialis = cialis + 1
+                                loans = loans - 5
+                        if loans < 5:
+                                print ("Beanman: You poor bastard, come back with some loans from the Longnoses")
+                    if answer == 4:
+                        if loans > 2:
+                                hp = health
+                                dong = DNG
+                                loans = loans - 3
+                        if loans < 5:
+                                print ("Beanman: You poor bastard, come back with some loans from the Longnoses")
+                    if answer == 5:
+                        print ("You leave the shop")
+                        return ritalin, health, dong, loans, cialis
+                        
+#Chapter 0#
+words = "In the Kangdom of Buttholia, a scourge now grips the land. The Wakandans march accross the Buttholian wheatfields and bring terror and EBOLA to the land. Aided by the Longnoses, the Wakandans have been able to conquer the disputed city of Charlottesvisle, which they have renamed to Section Eight. You are Hrogar, and what you have done in your past does not matter, but if you must know, you are a former prison inmate and town rapist, who was wrongfully imprisoned for being too good at being town rapist. After escaping prison, you have traveled back to your hometown of Charlottesvisle, only to find that it is now Section Eight. The time has Cum for the queefer to awaken."
+for char in words:
+        sleep(0.00)
+        sys.stdout.write(char)
+        sys.stdout.flush()
+##def racewar(Battle function). Keep monster stats inside battle function so only things to import are monster type and player stats?##
 
 print ( )
 race = int(input("Pick your race (Nord=1, Wakandan = 0.6, Longnose = 6000000, Liberal Nord = 0:  "))
@@ -107,10 +150,10 @@ if AP > 9:
         DNG = int(input("Pick DONG(0 to 10)"))
 AP = AP - STR
 playerstats()
-#End startgame function#
+#End Chapter 0#
 
 saveGame(1)
-#if chapter(from config file) == 1 :#
+#Chapter 1#
 print ()
 print ("CHAPTER 1: City Gates")
 print (" You find yourself at the ancient gates to Charlottesvisle, expecting to see your old friend Bonermere. You instead find a pair of Wakandans gaurdsmen blocking your path. Your ebonix is rusty, but they appear to be asking for your travel papers.")
@@ -190,6 +233,17 @@ if answer is 2:
 if answer is 3:
         loans=100
         print("Loans: ",loans)
-##Will need to add loans variable to Json File##
 answer = 0
-           
+if loans ==100:
+        print ("Bonermere: 100 whole loans? You will be able to by much, but you are going to get completely diddles when the longnoses decide to collet. He who is the richest in Charlottesvisle is now paradoxically the poorest, because of these damned Longnose loans")
+if loans ==2:
+        print ("Bonermere: 100 loans? You got off easy, but will still be diddled when the longnoses decide to collet. He who is the richest in Charlottesvisle is now paradoxically the poorest, because of these damned Longnose loans")
+answer = 0
+while answer > 2 or answer < 1:
+    print ("1. I dont know how much more of this my DONG can take. Let us go to doctor to get some cialis")
+    print ("2. Clearly there is much work to do here in Charlottesvisle, lets get some meds")
+print()
+print ("You arrive at the a shack near the center of town. A rusted and siphalitic sign reads BEANMAN:MEDICAL RITALIN AND CIALIS")
+print ("As you enter the shop, you are greeted by a portly hispanic making salads and sweating profusely")
+beanman()
+        
