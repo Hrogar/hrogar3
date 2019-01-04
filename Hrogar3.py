@@ -153,6 +153,11 @@ if AP > 9:
     while DNG < 1 or DNG > 10:
         DNG = int(input("Pick DONG(0 to 10)"))
 AP = AP - STR
+loans = 0
+cialis = 0
+ritalin = 0
+hp = health
+dong = DNG
 playerstats()
 #End Chapter 0#
 
@@ -195,7 +200,7 @@ while answer > 4 or answer < 1:
     print ("4. *Show DONG*")
     answer = int(input())
 if answer ==1:
-    print ("Bonermere: It has been too long, Chartlottesvisle has become a shit hole. We must get you to a doctor. There is only one left in town, I will take you to him, for a price")
+    print ("Bonermere: It has been too long, Chartlottesvisle has become a shit hole. We must get you to a doctor. There is only one left in town, we should head there and reminisce")
 if answer ==2:
         print ("And I would have been first, if it werent for that damned Chris Hansen")
 if answer ==3:
@@ -235,8 +240,13 @@ if answer is 2:
         loans=20
         print("Loans: ",loans)
 if answer is 3:
-        loans=100
-        print("Loans: ",loans)
+        if INT >7:
+                loans=100
+                print("Loans: ",loans)
+        if INT <8:
+            loans=20
+            print ("Nice try, only 20 for you Nord")
+            print ("Loans: ",loans)  
 answer = 0
 if loans ==100:
         print ("Bonermere: 100 whole loans? You will be able to by much, but you are going to get completely diddles when the longnoses decide to collet. He who is the richest in Charlottesvisle is now paradoxically the poorest, because of these damned Longnose loans")
