@@ -172,7 +172,18 @@ def racewar(enemy,amount):
                 damage = random.randrange(0,(STR+1)*(DNG+1),1)
                 enemyhp=enemyhp-damage
                 print ("You use your dong for ", damage, "damage")
-                
+            if enemyhp < 0:
+                print ("You have defeated the enemy")
+                print ("Exp Gained: ", enemyxp*amount)
+                level = level + enemyxp&amount
+                break
+            turns= amount
+            while turns > 0:
+                damage = random.randrange(0,STR+1,1)
+                hp=hp-damage
+                print ("You are attacked by ", enemy, " for ",)
+                turns=turns-1
+            
 #Chapter 0#
 words = "In the Kangdom of Buttholia, a scourge now grips the land. The Wakandans march accross the Buttholian wheatfields and bring terror and EBOLA to the land. Aided by the Longnoses, the Wakandans have been able to conquer the disputed city of Charlottesvisle, which they have renamed to Section Eight. You are Hrogar, and what you have done in your past does not matter, but if you must know, you are a former prison inmate and town rapist, who was wrongfully imprisoned for being too good at being town rapist. After escaping prison, you have traveled back to your hometown of Charlottesvisle, only to find that it is now Section Eight. The time has Cum for the queefer to awaken."
 for char in words:
