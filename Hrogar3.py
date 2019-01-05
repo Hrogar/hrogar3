@@ -1,8 +1,10 @@
 print ("HROGAR 3: Queefs of Change")
+print ("By AssMaster Studios")
 import math
 import sys
 import json
 from pprint import pprint
+import random
 random.seed(a=None, version=2)
 from time import sleep
 
@@ -23,6 +25,7 @@ def loadGame():
 
 loaded = loadGame()
 
+exp = loaded["muhnigga"] if len(loaded) > 0 else 0
 loans = loaded["sheckels"] if len(loaded) > 0 else 0
 race = loaded["race"] if len(loaded) > 0 else 0
 level = loaded["level"] if len(loaded) > 0 else 0
@@ -49,7 +52,6 @@ def playerstats ():
     print ("Intelligence: ", INT)
     print ("Strength:     ", STR)
     print ("DONG:         ", DNG)
-playerstats()
 
 def saveGame(chapter = 0):
     gameData = {}
@@ -65,6 +67,7 @@ def saveGame(chapter = 0):
     gameData["sheckels"] = loans
     gameData["gigaslore"] = hp
     gameData["currentdongpoints"] = dong
+    gameData["muhnigga"] = exp
     with open('saveGame.json', 'w') as outfile:
         json.dump(gameData, outfile)
 def beanman():
@@ -121,14 +124,28 @@ def beanman():
                     if answer == 5:
                         print ("You leave the shop")
                         break
-##racewar function not finished##
 def racewar(enemy,amount):
-        print ("You have been challenged to battle by ", amount, enemy)
-        if enemy = "straycat":
-                enemyhp=30*amount
-                enemystr=5*amount
+        if enemy == 1:
+                print ("You have been challenged to battle by ", amount, "straycat")
+                #straycat#
+                enemyhp=25*amount
+                enemystr=10*amount
                 enemydng=1*amount
                 enemyxp=1*amount
+        if enemy == 2:
+                print ("You have been challenged to battle by ", amount, "Wakandan Gaurdsmen")
+                #Wakandan Gaurdsman#
+                enemyhp=35*amount
+                enemystr=10*amount
+                enemydng=4*amount
+                enemyxp=2*amount
+        if enemy == 3:
+                print ("You have been challenged to battle by ", amount, "Beanman")
+                #Wakandan Gaurdsman#
+                enemyhp=75*amount
+                enemystr=15*amount
+                enemydng=3*amount
+                enemyxp=9*amount
         global hp
         global health
         global dong
@@ -136,11 +153,15 @@ def racewar(enemy,amount):
         global cialis
         global ritalin
         global level
+        global STR
+        global DNG
+        global exp
         answer = 0
         battleoutcome = 0
         while battleoutcome == 0:
-            print ("Health:", hp, , "/", health)
-            print ("DONG:", dong, , "/", DNG)
+            print ()
+            print ("Health:", hp, "/", health)
+            print ("DONG:", dong, "/", DNG)
             print ("1. Use Shank")
             print ("2. Use Cialis for DONG (",cialis, ") remaining")
             print ("3. Use Ritalin for health (",ritalin, ") remaining")
@@ -149,7 +170,7 @@ def racewar(enemy,amount):
             if answer == 1:
                 damage = random.randrange(0,STR+1,1)
                 enemyhp=enemyhp-damage
-                print ("Shank damage: ", damage)
+                print ("You shank the enemy for ", damage, " damage")
             if answer ==2:
                     if cialis > 0:
                         dong=dong+5
@@ -157,7 +178,7 @@ def racewar(enemy,amount):
                         if dong > DNG:
                                 dong = DNG
                         print ("DONG restored to ", dong, "inches")
-                    if cialis = 0:
+                    if cialis == 0:
                         print ("You have no cialis")
             if answer ==3:
                     if ritalin > 0:
@@ -166,24 +187,47 @@ def racewar(enemy,amount):
                         if hp > health:
                                 hp = health
                         print ("health restored to ", hp, "points")
-                    if ritalin = 0:
+                    if ritalin == 0:
                         print ("You have no ritalin")
             if answer == 4:
-                damage = random.randrange(0,(STR+1)*(DNG+1),1)
-                enemyhp=enemyhp-damage
-                print ("You use your dong for ", damage, "damage")
+                    if dong >0:
+                        damage = random.randrange(0,STR*DNG,1)
+                        enemyhp=enemyhp-damage
+                        print ("You use your dong for ", damage, "damage")
+                        dong = dong - 1
+                    if dong < 1:
+                            print ("Your DONG is not working")
             if enemyhp < 0:
                 print ("You have defeated the enemy")
                 print ("Exp Gained: ", enemyxp*amount)
-                level = level + enemyxp&amount
+                exp = exp + enemyxp*amount
+                if exp > (15-INT):
+                        print ("You have leveled up")
+                        exp = 0
+                        strboost = random.randrange(1,3,1)
+                        hpboost = random.randrange(1,5,1)
+                        dngboost = math.floor(random.randrange(0,5,1)/5)
+                        print ("DONG: +", dngboost)
+                        print ("Strength: +",strboost)
+                        print ("Additional Health: +", hpboost)
+                        health=health+hpboost
+                        STR = STR + strboost
+                        health = health + hpboost
+                        playerstats()
                 break
             turns= amount
             while turns > 0:
                 damage = random.randrange(0,STR+1,1)
                 hp=hp-damage
-                print ("You are attacked by ", enemy, " for ",)
+                print ("You are attacked for ", damage, "damage")
                 turns=turns-1
-            
+            print ("Enemy total Health: ", enemyhp)
+            if hp < 1:
+                    print ("You have died, the enemy diddles your corpse")
+                    print ("GAME OVER")
+                    youdednigga=input()
+                    while health > 0:
+                            print ("Game Over Loser")
 #Chapter 0#
 words = "In the Kangdom of Buttholia, a scourge now grips the land. The Wakandans march accross the Buttholian wheatfields and bring terror and EBOLA to the land. Aided by the Longnoses, the Wakandans have been able to conquer the disputed city of Charlottesvisle, which they have renamed to Section Eight. You are Hrogar, and what you have done in your past does not matter, but if you must know, you are a former prison inmate and town rapist, who was wrongfully imprisoned for being too good at being town rapist. After escaping prison, you have traveled back to your hometown of Charlottesvisle, only to find that it is now Section Eight. The time has Cum for the queefer to awaken."
 for char in words:
@@ -205,18 +249,18 @@ if race == 1:
 AP = 16
 print ("Points Left: ", AP)
 while INT < 1 or INT > 10:
-    INT = int(input("Pick intelligence(1 to 10)"))
+    INT = int(input("Pick intelligence(1 to 10). Intelligence determines how you can persuade, and how quickly you level"))
 AP = AP - INT
 print ("Points Left: ", AP)
 print ()
 playerstats()
 if AP < 10:
-    while STR < 1 or STR > AP:
-        print ("Pick strength (1 to",AP,")")
+    while STR < 1 or STR > (AP-1):
+        print ("Pick strength (1 to",AP-1,"). Strength contributes to total health and damage.")
         STR = int(input())
 if AP > 9:
     while STR < 1 or STR > 10:
-        STR = int(input("Pick strength(1 to 10)"))
+        STR = int(input("Pick strength(1 to 10). Strength contributes to total health and damage."))
 AP = AP - STR
 print ("Points Left: ", AP)
 print ()
@@ -232,9 +276,10 @@ AP = AP - STR
 loans = 0
 cialis = 0
 ritalin = 0
-health = 0 * STR + math.floor(DNG/2)
+health = 10 * STR + math.floor(DNG/2)
 hp = health
 dong = DNG
+exp = 0
 playerstats()
 #End Chapter 0#
 
@@ -254,18 +299,19 @@ while answer > 3 or answer < 1:
 if answer is 2:
     print ("Tyrone the Gaurdsman: Muh Dick (You are denied intry into Charlottesvisle, you are attacked by the gaurdsmen)")
     #Battle Function Here, 2 Gaurds#
+    racewar(2, 2)
     factiondispo(wakandandispo,-1)
 if answer is 1:
     print ("Tyrone the Gaurdsman: Hunnit dolla round clip muh WE pyramids hotep WE baybamomma (He enjoys your comment, and has decided he will let you in to the city, but only if you entertain him by fighting a stray cat first)")
-    #Battle Function Here, Stray Cat#
+    racewar(1, 1)
     factiondispo(wakandandispo,1)
 if answer is 3:
     if DNG > 8:
         print("(Tyrone is angered, and draws his UNESCO provided lead pipe as a weapon. Jayvon is frightened by the DONG and runs off into the woods)")
-        #Battle function here, 1 gaurd#
+        racewar(2, 1)
     if DNG < 9:
             print ("Tyrone the Gaurdsman: Muh Dick (You are denied intry into Charlottesvisle, you are attacked by the gaurdsmen)")
-            #Battle Function Here, 2 Gaurds#
+            racewar(2, 2)
             factiondispo(wakandandispo,1)
 print ("You make it in to the city, though not unscathed. You must find a doctor to heal your health, and cialis potions to restore your dong. The city before you is nothing like what you remember. The streets are dirty, and even more full of potholes than usual. The potholes had been filled in by constant street shitting from the Wakandans. A man dressed in rags approaches you")
 print ("Bonermere: Hrogar, dont tell me you dont recognize your old friend Bonermere")
@@ -340,8 +386,11 @@ print ("As you enter the shop, you are greeted by a portly hispanic making salad
 beanman()
 print ()
 print ("Bonermere: let us rest, there will be much to do tomorrow")
-print ()
+print ("Beanman: Now hold up. Hrogar, how about we cross DONGs in a sparring match before bed? I will let you lay with my goat afterwards, so you will be healed. No, no, I insist!")
+racewar(3, 1)
 print ("End of Chapter 1")
+hp = health
+dong = DNG
 playerstats()
-##End of Chapter 2##
+##End of Chapter 1##
 ##saveGame(2)##
