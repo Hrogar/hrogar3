@@ -394,3 +394,11 @@ dong = DNG
 playerstats()
 ##End of Chapter 1##
 ##saveGame(2)##
+
+##Chapter 2##
+print ("Chapter 2: Dindu Nuffin Wrong")
+print ("Your sleep is restless, your dreams are full of Wakandans, thousands of them, all riding bicycles that are not theirs. The smell is unimaginable. You are startled awake whenb you realize the smell is real. As you open your eyes, you see a gang of Wakandan Gaurdsmen, led by an officer, heading towards the door to Beanman's")
+print()
+print ("Nigerius Liberius: Mup da doo bo figly muh kangz whitey Hrogar bo watermellon n sheyit (We have come to requisition all of the supplies of this establishment for the Wakandan army")
+print ("Wakandan Gaurdsman: Nigguh (If you fail to comply with this demand, we will issue an arrest warrant on the spot for all those inside, at which point you will be taken to Wakandan court and sent to prison. Disorderly conduct in this Wakandan territory will not be tolerated")
+
