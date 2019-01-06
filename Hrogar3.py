@@ -8,13 +8,6 @@ import random
 random.seed(a=None, version=2)
 from time import sleep
 
-def factiondispo (faction,change):
-        if (faction+change) > 2 or (faction+change) < -2:
-                faction = faction
-        if (faction+change) < 3 or (faction+change) > -2:
-                faction = faction + change
-        return faction
-
 def loadGame():
     try:
         with open('saveGame.json', 'r') as f:
@@ -197,7 +190,7 @@ def racewar(enemy,amount):
                         dong = dong - 1
                     if dong < 1:
                             print ("Your DONG is not working")
-            if enemyhp < 0:
+            if enemyhp < 1:
                 print ("You have defeated the enemy")
                 print ("Exp Gained: ", enemyxp*amount)
                 exp = exp + enemyxp*amount
@@ -210,7 +203,6 @@ def racewar(enemy,amount):
                         print ("DONG: +", dngboost)
                         print ("Strength: +",strboost)
                         print ("Additional Health: +", hpboost)
-                        health=health+hpboost
                         STR = STR + strboost
                         health = health + hpboost
                         playerstats()
@@ -228,6 +220,106 @@ def racewar(enemy,amount):
                     youdednigga=input()
                     while health > 0:
                             print ("Game Over Loser")
+def racewarspl(enemy,amount):
+        if enemy == 1:
+                print ("You have been challenged to battle by ", amount, "straycat")
+                #straycat#
+                enemyhp=25*amount
+                enemystr=10*amount
+                enemydng=1*amount
+                enemyxp=1*amount
+        if enemy == 2:
+                print ("You have been challenged to battle by ", amount, "Wakandan Gaurdsmen")
+                #Wakandan Gaurdsman#
+                enemyhp=35*amount
+                enemystr=10*amount
+                enemydng=4*amount
+                enemyxp=2*amount
+        if enemy == 3:
+                print ("You have been challenged to battle by ", amount, "Beanman")
+                #Wakandan Gaurdsman#
+                enemyhp=75*amount
+                enemystr=15*amount
+                enemydng=3*amount
+                enemyxp=9*amount
+        global hp
+        global health
+        global dong
+        global dng
+        global cialis
+        global ritalin
+        global level
+        global STR
+        global DNG
+        global exp
+        answer = 0
+        battleoutcome = 0
+        while battleoutcome == 0:
+            print ()
+            print ("Health:", hp, "/", health)
+            print ("DONG:", dong, "/", DNG)
+            print ("1. Use Shank")
+            print ("2. Use Cialis for DONG (",cialis, ") remaining")
+            print ("3. Use Ritalin for health (",ritalin, ") remaining")
+            print ("4. Use DONG for special attack")
+            answer = int(input())
+            if answer == 1:
+                damage = random.randrange(0,STR+1,1)
+                enemyhp=enemyhp-damage
+                print ("You shank the enemy for ", damage, " damage")
+            if answer ==2:
+                    if cialis > 0:
+                        dong=dong+5
+                        cialis = cialis - 1
+                        if dong > DNG:
+                                dong = DNG
+                        print ("DONG restored to ", dong, "inches")
+                    if cialis == 0:
+                        print ("You have no cialis")
+            if answer ==3:
+                    if ritalin > 0:
+                        hp=hp+50
+                        ritalin = ritalin - 1
+                        if hp > health:
+                                hp = health
+                        print ("health restored to ", hp, "points")
+                    if ritalin == 0:
+                        print ("You have no ritalin")
+            if answer == 4:
+                    if dong >0:
+                        damage = random.randrange(0,STR*DNG,1)
+                        enemyhp=enemyhp-damage
+                        print ("You use your dong for ", damage, "damage")
+                        dong = dong - 1
+                    if dong < 1:
+                            print ("Your DONG is not working")
+            if enemyhp < 1:
+                print ("You have defeated the enemy")
+                print ("Exp Gained: ", enemyxp*amount)
+                exp = exp + enemyxp*amount
+                if exp > (15-INT):
+                        print ("You have leveled up")
+                        exp = 0
+                        strboost = random.randrange(1,3,1)
+                        hpboost = random.randrange(1,5,1)
+                        dngboost = math.floor(random.randrange(0,5,1)/5)
+                        print ("DONG: +", dngboost)
+                        print ("Strength: +",strboost)
+                        print ("Additional Health: +", hpboost)
+                        STR = STR + strboost
+                        health = health + hpboost
+                        playerstats()
+                break
+            turns= amount
+            while turns > 0:
+                damage = random.randrange(0,STR+1,1)
+                hp=hp-damage
+                print ("You are attacked for ", damage, "damage")
+                turns=turns-1
+            print ("Enemy total Health: ", enemyhp)
+            if hp < 1:
+                    print ("You have been taken into custody, the Wakandans run train on your ass")
+                    break
 #Chapter 0#
 words = "In the Kangdom of Buttholia, a scourge now grips the land. The Wakandans march accross the Buttholian wheatfields and bring terror and EBOLA to the land. Aided by the Longnoses, the Wakandans have been able to conquer the disputed city of Charlottesvisle, which they have renamed to Section Eight. You are Hrogar, and what you have done in your past does not matter, but if you must know, you are a former prison inmate and town rapist, who was wrongfully imprisoned for being too good at being town rapist. After escaping prison, you have traveled back to your hometown of Charlottesvisle, only to find that it is now Section Eight. The time has Cum for the queefer to awaken."
 for char in words:
@@ -350,8 +442,7 @@ answer = 0
 while answer > 3 or answer < 1:
     print ("1. Fine, I will take your filthy loans")
     print ("2. 20 whole loans? Sign me up!")
-    if INT >7:
-        print("3. How about 100 loans and I promise to touch myself to Wakandan cave paintings later?")
+    print ("3. How about 100 loans and I promise to touch myself to Wakandan cave paintings later?")
     print ("4. I will never take your fake banker's money!")     
     answer = int(input())
     print()
@@ -363,10 +454,10 @@ if answer is 2:
         loans = 20
         print("Loans: ",loans)
 if answer is 3:
-        if INT >7:
+        if INT >6:
                 loans=  100
                 print("Loans: ", loans)
-        if INT <8:
+        if INT <7:
             loans = 20
             print ("Nice try, only 20 for you Nord")
             print ("Loans: ", loans)  
@@ -401,4 +492,39 @@ print ("Your sleep is restless, your dreams are full of Wakandans, thousands of 
 print()
 print ("Nigerius Liberius: Mup da doo bo figly muh kangz whitey Hrogar bo watermellon n sheyit (We have come to requisition all of the supplies of this establishment for the Wakandan army")
 print ("Wakandan Gaurdsman: Nigguh (If you fail to comply with this demand, we will issue an arrest warrant on the spot for all those inside, at which point you will be taken to Wakandan court and sent to prison. Disorderly conduct in this Wakandan territory will not be tolerated")
-
+print ("Beanman: You damned Wakandans, these pills and dingy shack are all I have, I will not hand them over willingly")
+print ("*Beanman and Bonermere are takend into custody*")
+print ()
+print ("Nigerius Liberius: Booga Ooga spear chuck malt liquir (You there, Nord, you must come with us")
+answer = 0
+while answer > 3 or answer < 1:
+    print ("1. I submit willingly, take me to prison")
+    if INT > 7:
+        print ("2. [INT] Black Panther was the best movie ever made")
+    if INT < 8:
+        print ("2. [INT] Uhhhhh, muh dick booga?")
+    print ("3. *Show DONG* Fight me, Wakandans")
+    print ()
+    answer = int(input())
+if answer == 1:
+        print ("You are taken into custody, the Wakandans run train on your bootyhole")
+        prison = 1
+if answer == 2:
+        if INT > 7:
+                print ("Nigerius Liberius: Muh kangz, wipipo cthulu (Indeed it is. You have humored me, Nord, I will let you go")
+                prison = 0
+        if INT < 8:
+                print ("Nigerius Liberius: Muh kangz, wipipo cthulu (Nice try, take him into custody)")
+                print ("You are taken into custody, the Wakandans run train on your bootyhole")
+                prison = 1
+if answer == 3:
+        print ("Nigerius Liberius: Nigguh (This insolence will not be tolerated, get him, Wakandans!)")
+        print ("Beanman: Take these, Hrogar!")
+        print ("Beanman tosses you some pills")
+        cialis = cialis + 2
+        ritalin = ritalin + 1
+        racewarspl (2,3)
+        wakandandispo = wakandandispo - 1
+        print ("Nigerius knocks you unconscious with his DONG and you are taken to prison")
+        prison = 1
+        
