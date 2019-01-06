@@ -237,9 +237,15 @@ def racewar(enemy,amount):
                 break
             turns= amount
             while turns > 0:
-                damage = random.randrange(0,enemystr+1,1)
-                hp=hp-damage
-                print ("You are attacked for ", damage, "damage")
+                dongchance = random.randrange(1,5,1)
+                if dongchance < 9:
+                    damage = random.randrange(0,enemystr+1,1)
+                    hp=hp-damage
+                    print ("You are attacked for ", damage, "damage")
+                if dongchance > 8:
+                    damage = random.randrange(3,enemystr*2,1)
+                    hp=hp-damage
+                    print ("You are attacked with a DONG for ", damage, "damage")
                 turns=turns-1
             print ("Enemy total Health: ", enemyhp)
             if hp < 1:
