@@ -42,7 +42,7 @@ def playerstats ():
     print ("Race:       Nord")
     print ("Loans:       ", loans)
     print ("Level:        ", math.floor(level/10))
-    print ("Max Health:   ", health
+    print ("Max Health:   ", health)
     print ("Intelligence: ", INT)
     print ("Strength:     ", STR)
     print ("DONG:         ", DNG)
@@ -124,22 +124,43 @@ def racewar(enemy,amount):
                 print ("You have been challenged to battle by ", amount, "straycat")
                 #straycat#
                 enemyhp=25*amount
-                enemystr=10*amount
+                enemystr=5
                 enemydng=1*amount
                 enemyxp=1*amount
         if enemy == 2:
                 print ("You have been challenged to battle by ", amount, "Wakandan Gaurdsmen")
                 #Wakandan Gaurdsman#
                 enemyhp=35*amount
-                enemystr=10*amount
+                enemystr=6
                 enemydng=4*amount
                 enemyxp=2*amount
         if enemy == 3:
                 print ("You have been challenged to battle by ", amount, "Beanman")
-                #Wakandan Gaurdsman#
-                enemyhp=75*amount
-                enemystr=15*amount
+                #Beanman#
+                enemyhp=65*amount
+                enemystr=8
                 enemydng=3*amount
+                enemyxp=9*amount
+        if enemy == 4:
+                print ("You have been challenged to battle by ", amount, "crocodile")
+                #Crocodile#
+                enemyhp=35*amount
+                enemystr=11
+                enemydng=1*amount
+                enemyxp=3*amount
+        if enemy == 5:
+                print ("You have been challenged to battle by ", amount, "Double Wakandan")
+                #Double Wakandan#
+                enemyhp=60*amount
+                enemystr=10
+                enemydng=1*amount
+                enemyxp=4*amount
+        if enemy == 6:
+                print ("You have been challenged to battle by ", amount, "Nigerius Liberius")
+                #Nigerius Liberius#
+                enemyhp=90*amount
+                enemystr=16
+                enemydng=1*amount
                 enemyxp=9*amount
         global hp
         global health
@@ -151,6 +172,7 @@ def racewar(enemy,amount):
         global STR
         global DNG
         global exp
+        global loans
         answer = 0
         battleoutcome = 0
         while battleoutcome == 0:
@@ -186,7 +208,7 @@ def racewar(enemy,amount):
                         print ("You have no ritalin")
             if answer == 4:
                     if dong >0:
-                        damage = random.randrange(0,STR*DNG,1)
+                        damage = random.randrange(5,STR*DNG+5,1)
                         enemyhp=enemyhp-damage
                         print ("You use your dong for ", damage, "damage")
                         dong = dong - 1
@@ -196,8 +218,12 @@ def racewar(enemy,amount):
                 print ("You have defeated the enemy")
                 print ("Exp Gained: ", enemyxp*amount)
                 exp = exp + enemyxp*amount
+                coinss = random.randrange(0,enemyxp*2,1)
+                print ("You have gained ", coinss, " loans")
+                loans = loans + coinss
                 if exp > (15-INT):
                         print ("You have leveled up")
+                        level = level +1
                         exp = 0
                         strboost = random.randrange(1,3,1)
                         hpboost = random.randrange(1,5,1)
@@ -211,7 +237,7 @@ def racewar(enemy,amount):
                 break
             turns= amount
             while turns > 0:
-                damage = random.randrange(0,STR+1,1)
+                damage = random.randrange(0,enemystr+1,1)
                 hp=hp-damage
                 print ("You are attacked for ", damage, "damage")
                 turns=turns-1
@@ -227,21 +253,21 @@ def racewarspl(enemy,amount):
                 print ("You have been challenged to battle by ", amount, "straycat")
                 #straycat#
                 enemyhp=25*amount
-                enemystr=10*amount
+                enemystr=5
                 enemydng=1*amount
                 enemyxp=1*amount
         if enemy == 2:
                 print ("You have been challenged to battle by ", amount, "Wakandan Gaurdsmen")
                 #Wakandan Gaurdsman#
                 enemyhp=35*amount
-                enemystr=10*amount
+                enemystr=7
                 enemydng=4*amount
                 enemyxp=2*amount
         if enemy == 3:
                 print ("You have been challenged to battle by ", amount, "Beanman")
                 #Wakandan Gaurdsman#
-                enemyhp=75*amount
-                enemystr=15*amount
+                enemyhp=65*amount
+                enemystr=8
                 enemydng=3*amount
                 enemyxp=9*amount
         global hp
@@ -266,7 +292,7 @@ def racewarspl(enemy,amount):
             print ("4. Use DONG for special attack")
             answer = int(input())
             if answer == 1:
-                damage = random.randrange(0,STR+1,1)
+                damage = random.randrange(1,STR+1,1)
                 enemyhp=enemyhp-damage
                 print ("You shank the enemy for ", damage, " damage")
             if answer ==2:
@@ -289,7 +315,7 @@ def racewarspl(enemy,amount):
                         print ("You have no ritalin")
             if answer == 4:
                     if dong >0:
-                        damage = random.randrange(0,STR*DNG,1)
+                        damage = random.randrange(5,STR*DNG+5,1)
                         enemyhp=enemyhp-damage
                         print ("You use your dong for ", damage, "damage")
                         dong = dong - 1
@@ -301,6 +327,7 @@ def racewarspl(enemy,amount):
                 exp = exp + enemyxp*amount
                 if exp > (15-INT):
                         print ("You have leveled up")
+                        level = level + 1
                         exp = 0
                         strboost = random.randrange(1,3,1)
                         hpboost = random.randrange(1,5,1)
@@ -314,13 +341,15 @@ def racewarspl(enemy,amount):
                 break
             turns= amount
             while turns > 0:
-                damage = random.randrange(0,STR+1,1)
+                damage = random.randrange(0,enemystr+1,1)
                 hp=hp-damage
                 print ("You are attacked for ", damage, "damage")
                 turns=turns-1
             print ("Enemy total Health: ", enemyhp)
             if hp < 1:
                     print ("You have been taken into custody, the Wakandans run train on your ass")
+                    hp = health
+                    dong = DNG
                     break
 #Chapter 0#
 words = "In the Kangdom of Buttholia, a scourge now grips the land. The Wakandans march accross the Buttholian wheatfields and bring terror and EBOLA to the land. Aided by the Longnoses, the Wakandans have been able to conquer the disputed city of Charlottesvisle, which they have renamed to Section Eight. You are Hrogar, and what you have done in your past does not matter, but if you must know, you are a former prison inmate and town rapist, who was wrongfully imprisoned for being too good at being town rapist. After escaping prison, you have traveled back to your hometown of Charlottesvisle, only to find that it is now Section Eight. The time has Cum for the queefer to awaken."
@@ -394,11 +423,9 @@ if answer is 2:
     print ("Tyrone the Gaurdsman: Muh Dick (You are denied intry into Charlottesvisle, you are attacked by the gaurdsmen)")
     #Battle Function Here, 2 Gaurds#
     racewar(2, 2)
-    factiondispo(wakandandispo,-1)
 if answer is 1:
     print ("Tyrone the Gaurdsman: Hunnit dolla round clip muh WE pyramids hotep WE baybamomma (He enjoys your comment, and has decided he will let you in to the city, but only if you entertain him by fighting a stray cat first)")
     racewar(1, 1)
-    factiondispo(wakandandispo,1)
 if answer is 3:
     if DNG > 8:
         print("(Tyrone is angered, and draws his UNESCO provided lead pipe as a weapon. Jayvon is frightened by the DONG and runs off into the woods)")
@@ -406,7 +433,6 @@ if answer is 3:
     if DNG < 9:
             print ("Tyrone the Gaurdsman: Muh Dick (You are denied intry into Charlottesvisle, you are attacked by the gaurdsmen)")
             racewar(2, 2)
-            factiondispo(wakandandispo,1)
 print ("You make it in to the city, though not unscathed. You must find a doctor to heal your health, and cialis potions to restore your dong. The city before you is nothing like what you remember. The streets are dirty, and even more full of potholes than usual. The potholes had been filled in by constant street shitting from the Wakandans. A man dressed in rags approaches you")
 print ("Bonermere: Hrogar, dont tell me you dont recognize your old friend Bonermere")
 answer = 0
@@ -497,7 +523,7 @@ print ("Wakandan Gaurdsman: Nigguh (If you fail to comply with this demand, we w
 print ("Beanman: You damned Wakandans, these pills and dingy shack are all I have, I will not hand them over willingly")
 print ("*Beanman and Bonermere are takend into custody*")
 print ()
-print ("Nigerius Liberius: Booga Ooga spear chuck malt liquir (You there, Nord, you must come with us")
+print ("Nigerius Liberius: Booga Ooga spear chuck malt liquir (You there, Nord, you must come now")
 answer = 0
 while answer > 3 or answer < 1:
     print ("1. I submit willingly, take me to prison")
@@ -539,6 +565,82 @@ if prison == 0:
         while answer > 2 or answer < 1:
             print ("1. Insert DONG into lock")
             print ("2. Fight nearby gaurd for a key")
+            answer = int(input())
             if answer == 1:
-                
+                if DNG > 4:
+                        print ("You open the lock with your DONG, and are attacked by a stray cat")
+                        racewar (1,1)
+                if DNG < 5:
+                        print ("Nothing happens. A passing Wakandan gaurd notices you fucking a gate and attacks you out of disgust")
+                        racewar (2,1)
+                        print ("You get the keys and enter the sewers")
+            if answer == 2:
+                    racewar (2,1)
+                    print ("You get the keys and enter the sewers")
+        print ("The sewers are dank and smell of malt liquor, you come to a fork in the sewers, with two paths")
+        answer = 0
+        while answer > 1 or answer < 1:
+            print ("1. Go left")
+            print ("2. Go right")
+            answer = int(input())
+            if answer == 2:
+                    print ("You find a dead end, and an angry crocodile")
+                    racewar (4,1)
+        print ("You enter the basement level of the prison and open a grate, revealing a row of cages gaurded by three Wakandan Gaurdsmen. Bonermere's decapitated head sits on a table. Beanman lies in the cell on the corner, and it looks like his ass hurts")
+        answer = 0
+        while answer > 2 or answer < 1:
+            print ("1. Attempt to retrieve Beanman and Bonermere's head")
+            print ("2. Attempt to retrieve Beanman")
+            answer = int(input())
+            if answer ==1:
+                    racewar(2,2)
+                    print ("You toss Bonermere's head into the sewer. A proper burial")
+        print ("You escape with Beanman into the sewers")
+        print ("Beanman: Thanks you for saving me, they diddles poor Bonermere to death, I swear I will help you avenge him")
+        print ()
+if prison == 1:
+        print ("You are taken to prison. This being a Wakanda prison, those Wakandans inside are double Wakandans, more fearsome and dumb than the regular ones")
+        print ("Bonermere is quickly raped to death upon arrival")
+        print ("One of the Double Wakandans breaks from the pack and heads towards you")
+        racewar(5,1)
+        print ("Beanman: We must find a way out of here")
+        answer = 0
+        while answer > 2 or answer < 1:
+            print ("1. I agree")
+            print ("2. I dont know, I kind of like it here")
+            answer = int(input())
+            if answer ==2:
+                    print ("Beanman: Well, I dont have the bootyhole stamina to survive in a place like this")
+        print ("Beanman: We must make an attempt to leave before the same fate as Bonermere befalls us. Here, have a ritalin I was able to sneak in, sorry if it tastes like ass.")
+        ritalin = ritalin + 1
+        answer = 0
+        while answer > 2 or answer < 1:
+            print ("1. Let me see if I can convince one of these Wakandans to make a distraction")
+            if DNG > 7:
+                    print ("2. I think I can pick the lock with my DONG")
+            if DNG < 8:
+                    print ("2. I would pick the lock, but I dont think I have the DONG for it.")
+            answer = int(input())
+        if answer == 1:
+                print("You approach the biggest Wakandan you can find. He seems to be eager, but he requires you to fight him to prove your worth first")
+                racewar(5,1)
+                print ("The wakandan creates the distraction, allowing you to grab the keys and escape with Beanman into the sewer")
+        if answer == 2:
+            if DNG > 7:
+                    print ("You pick the lock with your DONG and escape with Beanman into the sewers.")
+            if DNG < 8:
+                    print ("Your DONG does not work. You are attacked by a Wakandan Gaursman, who is disgusted by the sight of you fornicating with the gate>")
+                    racewar(2,1)
+                    print ("You grab the keys off of the gaurd and escape with Beanman into the sewers.")
+print ("Upon exiting the sewers you find a lone goat to restore yourself with. As you finish, you hear a voice")
+print ("Nigerius Liberius: Yuh (How have you escaped?? No matter, I will deal with you now, myself!")
+hp = health
+dong = DNG
+racewar(6,1)
+print ("You defeat Nigerius Liberius and return to Beanman's Shack to mourn Bonermere")
+print ("End of Chapter 2")
+##saveGame(3)##
+##End of Chapter 2##
+
+##Start of Chapter 3##
 
