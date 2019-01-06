@@ -18,6 +18,7 @@ def loadGame():
 
 loaded = loadGame()
 
+health = loaded["livin"] if len(loaded) > 0 else 0
 exp = loaded["muhnigga"] if len(loaded) > 0 else 0
 loans = loaded["sheckels"] if len(loaded) > 0 else 0
 race = loaded["race"] if len(loaded) > 0 else 0
@@ -41,13 +42,14 @@ def playerstats ():
     print ("Race:       Nord")
     print ("Loans:       ", loans)
     print ("Level:        ", math.floor(level/10))
-    print ("Max Health:   ", 10 * STR + math.floor(DNG/2))
+    print ("Max Health:   ", health
     print ("Intelligence: ", INT)
     print ("Strength:     ", STR)
     print ("DONG:         ", DNG)
 
 def saveGame(chapter = 0):
     gameData = {}
+    gameData["livin"] = health
     gameData["level"] = level
     gameData["race"] = race
     gameData["intelligence"] = INT
@@ -527,4 +529,16 @@ if answer == 3:
         wakandandispo = wakandandispo - 1
         print ("Nigerius knocks you unconscious with his DONG and you are taken to prison")
         prison = 1
-        
+print ()
+if prison == 0:
+        hp = health
+        dong = DNG
+        print ("Having escaped capture, you are determined to break your colleagues out of Wakandan prison, as prison-breaks are your specialty (in addition to town-raping). You lay with Beanman's goat to restore yourself.")
+        print ("After a brief survey of the Wakandan prison, you find a nearby sewer that leads under the walls. The sewer is locked, and you dont have a key")
+        answer = 0
+        while answer > 2 or answer < 1:
+            print ("1. Insert DONG into lock")
+            print ("2. Fight nearby gaurd for a key")
+            if answer == 1:
+                
+
