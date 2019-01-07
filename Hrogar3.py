@@ -224,7 +224,7 @@ def racewar(enemy,amount):
                 while exp > (15-INT):
                         print ("You have leveled up")
                         level = level +1
-                        exp = exp - 10
+                        exp = exp - (15-INT)
                         strboost = random.randrange(1,3,1)
                         hpboost = random.randrange(1,5,1)
                         dngboost = math.floor(random.randrange(0,5,1)/5)
