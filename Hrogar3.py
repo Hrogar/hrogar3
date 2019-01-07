@@ -221,10 +221,10 @@ def racewar(enemy,amount):
                 coinss = random.randrange(0,enemyxp*2,1)
                 print ("You have gained ", coinss, " loans")
                 loans = loans + coinss
-                if exp > (15-INT):
+                while exp > (15-INT):
                         print ("You have leveled up")
                         level = level +1
-                        exp = 0
+                        exp = exp - 10
                         strboost = random.randrange(1,3,1)
                         hpboost = random.randrange(1,5,1)
                         dngboost = math.floor(random.randrange(0,5,1)/5)
