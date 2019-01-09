@@ -41,7 +41,7 @@ def playerstats ():
     print ("Name:     Hrogar")
     print ("Race:       Nord")
     print ("Loans:       ", loans)
-    print ("Level:        ", math.floor(level/10))
+    print ("Level:        ", level)
     print ("Max Health:   ", health)
     print ("Intelligence: ", INT)
     print ("Strength:     ", STR)
@@ -223,7 +223,7 @@ def racewar(enemy,amount):
                 loans = loans + coinss
                 while exp > (15-INT):
                         print ("You have leveled up")
-                        level = level +1
+                        level = level + 1
                         exp = exp - (15-INT)
                         strboost = random.randrange(1,3,1)
                         hpboost = random.randrange(1,5,1)
@@ -254,6 +254,72 @@ def racewar(enemy,amount):
                     youdednigga=input()
                     while health > 0:
                             print ("Game Over Loser")
+def roaming():
+        global hp
+        global health
+        global dong
+        global dng
+        global cialis
+        global ritalin
+        global level
+        global STR
+        global DNG
+        global exp
+        global loans
+        answer = 0
+        while answer > 4 or answer < 1:
+            print ("What to do?")
+            print ("1. Visit Beanman")
+            print ("2. Visit tavern")
+            print ("3. *Show DONG* to passerby")
+            print ("4. *Visit Ethota")
+            answer = int(input())
+                if answer == 1:
+                    beanman()
+                    answer = 0
+                if answer == 2:
+                    print ("You visit your favorite tavern, the DONG Forrest Tavern, and take a seat. You notice some Wakandan gaurdsmen are being rowdy and chimping out at the bartender")
+                    answer = 0
+                    while answer > 3 or answer < 1:
+                        print ("What to do?")
+                        print ("1. [2 Loans] Order drink")
+                        print ("2. Confront Wakandans")
+                        print ("3. *Show DONG* and leave")
+                    if answer == 1:
+                        loans = loans - 2
+                        dong = DNG
+                        hp = health
+                        print ("Gritty, but refreshing. You forget where you are and leave the tavern")
+                    answer = 0
+                if answer == 3:
+                    print ("Wakandan: Hunnit EBT (State your business here, Nord)")
+                    while answer > 3 or answer < 1:
+                        print ("1. Fight me, spearchuckers")
+                        print ("2. Leave bar")
+                        print ("3. *Show DONG*")
+                        if answer ==1:
+                            racewar (2,5)
+                            print(" The Wakandans yell something about kangz and leave the bar. You get a free drink from the bartender, which you finish in peace and leave")
+                            hp = health
+                            dong = DNG
+                        if answer == 2:
+                            print ("You leave the bar and are mugged on the way out for all of your loans")
+                            loans = 0
+                            answer = 0
+                        if answer == 3:
+                            if DNG > 8:
+                                print ("Wakandans: Mufugguh")
+                                print("The Wakandans are amazed and give you a loan as tribute. You leave the bar with full DONG")
+                                loans = loans +1
+                                dong = DNG
+                            if DNG < 9:
+                                print ("Wakandans: HAHAHAHAHA")
+                                print ("Your DONG deflates, and you leave the bar in embarassment")
+                                dong = 0
+                                answer = 0
+                    answer = 0
+                if answer == 4:
+                    break
 def racewarspl(enemy,amount):
         if enemy == 1:
                 print ("You have been challenged to battle by ", amount, "straycat")
@@ -649,4 +715,29 @@ print ("End of Chapter 2")
 ##End of Chapter 2##
 
 ##Start of Chapter 3##
-
+print ("Your dreams are of Bonermere and Section 8. The darkness of the Wakandans crowds out the image of his face until there is nothing but void. A dim light appears in the distance. It draws closer and grows in intesity until you are blinded. In a space full of white, you see a Nordic princess, whose skin has turned to leather. She whispers in your ear that none of this would have come to pass if you had just hit her every once in a while. As the world falls apart and you awake, she whispers in your ear: the queefer must awaken")
+print ()
+print ("You are awakened by Beanman brushing his teeth with the urine from one of his goats")
+print ("Beanman: Hrogar, how have you slept?")
+answer = 0
+while answer > 2 or answer < 1:
+            print ("1. I have slept well")
+            print ("2. I have slept poorly, this shack smells of goat shit and vape")
+            answer = int(input())
+if answer ==1:
+    print ("Beanman: I should hope so, the mattress you sleep on is made of only the finest goat shit and menthol cigarrette butts")
+if answer ==2:
+    print ("Beanman: If you dont like it, you can go sleep with the Wakandans and their EBOLA")
+print ("Beanman: You look like you could use some supplies")
+answer = 0
+while answer > 2 or answer < 1:
+            print ("1. Yes, my reserves of pills are running low")
+            print ("2. I will be fine for now, salad-tosser")
+            answer = int(input())
+if answer ==1:
+    beanman()
+if answer ==2:
+    print ("Beanman: Suit yourself")
+print ()
+print ("Beanman: You may want to visit Ethota, she has largely been coordinating the resistance movement against the Wakandans, as the Buttholian government has been infiltrated by Longnoses, and likely will never send us military aid")
+roaming()
