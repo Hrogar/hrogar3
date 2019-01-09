@@ -645,9 +645,9 @@ print ("Nigerius Liberius: Booga Ooga spear chuck malt liquir (You there, Nord, 
 answer = 0
 while answer > 3 or answer < 1:
     print ("1. I submit willingly, take me to prison")
-    if INT > 5:
+    if INT > 4:
         print ("2. [INT] Black Panther was the best movie ever made")
-    if INT < 6:
+    if INT < 5:
         print ("2. [INT] Uhhhhh, muh dick booga?")
     print ("3. *Show DONG* Fight me, Wakandans")
     print ()
@@ -656,10 +656,10 @@ if answer == 1:
         print ("You are taken into custody, the Wakandans run train on your bootyhole")
         prison = 1
 if answer == 2:
-        if INT > 7:
+        if INT > 4:
                 print ("Nigerius Liberius: Muh kangz, wipipo cthulu (Indeed it is. You have humored me, Nord, I will let you go")
                 prison = 0
-        if INT < 8:
+        if INT < 5:
                 print ("Nigerius Liberius: Muh kangz, wipipo cthulu (Nice try, take him into custody)")
                 print ("You are taken into custody, the Wakandans run train on your bootyhole")
                 prison = 1
