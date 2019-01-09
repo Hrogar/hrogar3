@@ -600,10 +600,10 @@ if answer is 2:
         loans = 20
         print("Loans: ",loans)
 if answer is 3:
-        if INT >6:
+        if INT >5:
                 loans=  100
                 print("Loans: ", loans)
-        if INT <7:
+        if INT <6:
             loans = 20
             print ("Nice try, only 20 for you Nord")
             print ("Loans: ", loans)  
@@ -645,9 +645,9 @@ print ("Nigerius Liberius: Booga Ooga spear chuck malt liquir (You there, Nord, 
 answer = 0
 while answer > 3 or answer < 1:
     print ("1. I submit willingly, take me to prison")
-    if INT > 7:
+    if INT > 5:
         print ("2. [INT] Black Panther was the best movie ever made")
-    if INT < 8:
+    if INT < 6:
         print ("2. [INT] Uhhhhh, muh dick booga?")
     print ("3. *Show DONG* Fight me, Wakandans")
     print ()
