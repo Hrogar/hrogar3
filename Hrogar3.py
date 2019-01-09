@@ -166,7 +166,7 @@ def racewar(enemy,amount):
                 print ("You have been challenged to battle by ", amount, "Beta Orbiters")
                 #Beta Orbiter#
                 enemyhp=2*amount
-                enemystr=2
+                enemystr=1
                 enemydng=1*amount
                 enemyxp=1
         if enemy == 8:
@@ -222,7 +222,7 @@ def racewar(enemy,amount):
                         print ("You have no ritalin")
             if answer == 4:
                     if dong >0:
-                        damage = random.randrange(5,STR*DNG+5,1)
+                        damage = random.randrange(5,STR*5+1,1)
                         enemyhp=enemyhp-damage
                         print ("You use your dong for ", damage, "damage")
                         dong = dong - 1
