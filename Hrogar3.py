@@ -176,6 +176,13 @@ def racewar(enemy,amount):
                 enemystr=18
                 enemydng=1*amount
                 enemyxp=9
+        if enemy == 9:
+                print ("You have been challenged to battle by ", amount, "Drunken Peasant")
+                #Drunken Peasant#
+                enemyhp=70*amount
+                enemystr=10
+                enemydng=1*amount
+                enemyxp=3
         global hp
         global health
         global dong
@@ -317,7 +324,10 @@ def ch3roaming():
                         answer = 0
                         while answer > 3 or answer < 1:
                             print ("1. Fight me, spearchuckers")
-                            print ("2. Leave bar")
+                            if INT > 4:
+                                print ("2. [INT] Bicycle hi-point muh dick menthol whomadaddy (I have in my possession one pair of air jordans, and will gibs it to whoever among you is the last standing when you fight to the death for them")
+                            if INT < 5:
+                                print ("2. Leave bar")
                             print ("3. *Show DONG*")
                             answer = int(input())
                             if answer ==1:
@@ -327,8 +337,16 @@ def ch3roaming():
                                 dong = DNG
                                 wipipodispo = 3
                             if answer == 2:
-                                print ("You leave the bar and are mugged on the way out for all of your loans")
-                                loans = 0
+                                if INT < 5:
+                                    print ("You leave the bar and are mugged on the way out for all of your loans")
+                                    loans = 0
+                                if INT > 4:
+                                    print ("Wakandan 1: Muffuga? No sheyit?")
+                                    print ("Wakandan 2: Mup da doo. Dem shoos mine")
+                                    print ("Wakandan 1: Nuh un")
+                                    print ("Wakandan 3: OOOOGA BOOOOGA")
+                                    print ("The Wakandans all beat eachother into unconsciousness, there were never any shoes")
+                                    wipipodispo = 3
                             if answer == 3:
                                 if DNG > 8:
                                     print ("Wakandans: Mufugguh")
@@ -344,7 +362,8 @@ def ch3roaming():
                         print ("You whip out your DONG and leave the tavern")
                     answer = 0
             if answer == 3:
-                print ("You engage your Helicockter on a nearby pedestrian")
+                print ("You engage your Helicockter on a nearby pedestrian. They attack you")
+                racewar(9,1)
                 answer = 0
             if answer == 4:
                     print ("You arrive at the residence of Ethota, and find her walking around skimpily while being followed by BETA orbitters")
