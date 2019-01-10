@@ -265,7 +265,7 @@ def racewar(enemy,amount):
                     hp=hp-damage
                     print ("You are attacked for ", damage, "damage")
                 if dongchance > 4:
-                    damage = random.randrange(3,enemystr*2,1)
+                    damage = random.randrange(3,enemystr*2+2,1)
                     hp=hp-damage
                     print ("You are attacked with a DONG for ", damage, "damage")
                 turns=turns-1
