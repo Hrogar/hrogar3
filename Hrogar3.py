@@ -18,6 +18,7 @@ def loadGame():
 
 loaded = loadGame()
 
+gun = loaded["boomboom"] if len(loaded) > 0 else 0
 health = loaded["livin"] if len(loaded) > 0 else 0
 exp = loaded["muhnigga"] if len(loaded) > 0 else 0
 loans = loaded["sheckels"] if len(loaded) > 0 else 0
@@ -49,6 +50,7 @@ def playerstats ():
 
 def saveGame(chapter = 0):
     gameData = {}
+    gameData["boomboom"] = gun
     gameData["livin"] = health
     gameData["level"] = level
     gameData["race"] = race
@@ -65,6 +67,7 @@ def saveGame(chapter = 0):
     gameData["muhnigga"] = exp
     with open('saveGame.json', 'w') as outfile:
         json.dump(gameData, outfile)
+
 def beanman():
         global loans
         global cialis
@@ -182,7 +185,28 @@ def racewar(enemy,amount):
                 enemyhp=70*amount
                 enemystr=10
                 enemydng=1*amount
-                enemyxp=3
+                enemyxp=3*amount
+        if enemy == 10:
+                print ("You have been challenged to battle by ", amount, "Mr. Niggles the cat")
+                #Super Cat#
+                enemyhp=70*amount
+                enemystr=10
+                enemydng=1*amount
+                enemyxp=3*amount
+        if enemy == 11:
+                print ("You have been challenged to battle by ", amount, "Ghost of Nigerius Liberius")
+                #Ghost of Nigerius Liberius#
+                enemyhp=100*amount
+                enemystr=15
+                enemydng=1*amount
+                enemyxp=5*amount
+        if enemy == 11:
+                print ("You have been challenged to battle by ", amount, "DoppleHrogar")
+                #Drunken Peasant#
+                enemyhp=health
+                enemystr=STR
+                enemydng=DNG
+                enemyxp=9*amount
         global hp
         global health
         global dong
@@ -832,9 +856,209 @@ if answer == 2:
         racewar(8,1)
 print ("End of Chapter 3")
 playerstats()
-
+print()
 ##End of Chapter 3##
 
 #Start of Chapter 4##
 print ("Chapter 4: We dont want you back")
+print("You see a grotesquely obese woman, she rolls towards you and crushes you. You wake up to the echoes of a million little 'mup da doo's")
+print("Beanman: Hrogar, you better wake up if you are going to kill that Coalburna. By the way, there is a drinking contest going on at the tavern, grand prize is a mystery")
+def drinkingcomp():
+        global hp
+        global health
+        global dong
+        global dng
+        global cialis
+        global ritalin
+        global level
+        global STR
+        global DNG
+        global exp
+        global loans
+        global gun
+        competition = 1
+        round = 1
+        while competition == 1:
+            print ("Round: ", round)
+            if round ==1:
+                print ("You drink a beer, it tastes like ass")
+                pukechance = random.randrange(1,12,1)
+                if pukechance >10:
+                    print ("You puke like a bitch, and are raped in the confusion")
+                    competition = 0
+            if round == 2:
+                print ("You drink a beer, it tastes like ass")
+                answer = 0
+                print ("What animal has the most nipples?")
+                print("1. A Duck")
+                print ("2. A guatemalan")
+                print ("3. A Possum")
+                answer = int(input())
+                if answer != 3:
+                    print("INCORRECT, You fail")
+                    competition = 0
+                pukechance = random.randrange(1,12,1)
+                if pukechance >10:
+                    print ("You puke like a bitch, and are raped in the confusion")
+                    competition = 0
+            if round == 3:
+                print ("You drink a beer, it tastes like ass")
+                answer = 0
+                print ("What country has agv DONG under 5.3 inches?")
+                print("1. Latvia")
+                print ("2. Lebanon")
+                print ("3. Israel")
+                print ("4. Palestine")
+                answer = int(input())
+                if answer != 3:
+                    print("INCORRECT, You fail")
+                    competition = 0
+                pukechance = random.randrange(1,12,1)
+                if pukechance >10:
+                    print ("You puke like a bitch, and are raped in the confusion")
+                    competition = 0
+            if round == 4:
+                print ("You drink a beer, it tastes like ass, your vision becomes very blurry")
+                print ("Bar Tender: You must fight our pet cat, Mr. Niggles")
+                racewar(10,1)
+                pukechance = random.randrange(1,12,1)
+                if pukechance >10:
+                    print ("You puke like a bitch, and are raped in the confusion")
+                    competition = 0
+            if round == 5:
+                print ("You drink a beer, it tastes like ass, your vision becomes very blurry and the world spins")
+                answer = 0
+                print ("What is the birthday of Rhodesia?")
+                print("1. 11/11")
+                print ("2. 12/30")
+                print ("3. 9/22")
+                print ("4. You mean Zimbabwe?")
+                answer = int(input())
+                if answer != 1:
+                    print("INCORRECT, You fail")
+                    competition = 0
+                pukechance = random.randrange(1,12,1)
+                if pukechance >10:
+                    print ("You puke like a bitch, and are raped in the confusion")
+                    competition = 0
+            if round == 6:
+                print ("You drink a beer, it tastes like ass, you cant feel your face, the bar seems so far away")
+                print ("Mufugguh Bix Noooooood")
+                print("Hrogar: Who said that?!")
+                racewar(11,1)
+                pukechance = random.randrange(1,12,1)
+                if pukechance >10:
+                    print ("You puke like a bitch, and are raped in the confusion")
+                    competition = 0
+            if round == 7:
+                print ("You drink a beer, it tastes like ass, you cant feel anything")
+                print ("You look into the void, and it looks into you")
+                racewar(12,1)
+                pukechance = random.randrange(1,12,1)
+                if pukechance >10:
+                    print ("You puke like a bitch, and are raped in the confusion")
+                    competition = 0
+                if pukechance <10:
+                    print("You have won and have received a GUN as a reward")
+                    gun = 1
+            round = round + 1
+def ch3roaming():
+        global hp
+        global health
+        global dong
+        global dng
+        global cialis
+        global ritalin
+        global level
+        global STR
+        global DNG
+        global exp
+        global loans
+        global wipipodispo
+        answer = 0
+        while answer > 4 or answer < 1:
+            print ("What to do?")
+            print ("1. Visit Beanman")
+            print ("2. Visit tavern")
+            print ("3. *Show DONG* to passerby")
+            print ("4. *Travel to Coalburna's Tower")
+            answer = int(input())
+            if answer == 1:
+                    beanman()
+                    answer = 0
+            if answer == 2:
+                    print ("You visit your favorite tavern, the DONG Forrest Tavern, and take a seat. You notice some Wakandan gaurdsmen are being rowdy and chimping out at the bartender")
+                    answer = 0
+                    while answer > 3 or answer < 1:
+                        print ("What to do?")
+                        print ("1. [2 Loans] Order drink")
+                        print ("2. Confront Wakandans")
+                        print ("3. *Show DONG* and leave")
+                        print ("4. Compete in drinking competition")
+                        answer = int(input())
+                    if answer == 1:
+                        if loans >1:
+                            loans = loans - 2
+                            dong = DNG
+                            hp = health
+                            print ("Gritty, but refreshing. You forget where you are and leave the tavern")
+                            answer = 0
+                        if loans < 2:
+                            print ("You are too poor, you are kicked out of the tavern")
+                            answer = 0
+                    if answer == 2:
+                        print ("Wakandan: Hunnit EBT (State your business here, Nord)")
+                        answer = 0
+                        while answer > 3 or answer < 1:
+                            print ("1. Fight me, spearchuckers")
+                            if INT > 4:
+                                print ("2. [INT] Bicycle hi-point muh dick menthol whomadaddy (I have in my possession one pair of air jordans, and will gibs it to whoever among you is the last standing when you fight to the death for them")
+                            if INT < 5:
+                                print ("2. Leave bar")
+                            print ("3. *Show DONG*")
+                            answer = int(input())
+                            if answer ==1:
+                                racewar (2,5)
+                                print(" The Wakandans yell something about kangz and leave the bar. You get a free drink from the bartender, which you finish in peace and leave")
+                                hp = health
+                                dong = DNG
+                                wipipodispo = 3
+                            if answer == 2:
+                                if INT < 5:
+                                    print ("You leave the bar and are mugged on the way out for all of your loans")
+                                    loans = 0
+                                if INT > 4:
+                                    print ("Wakandan 1: Muffuga? No sheyit?")
+                                    print ("Wakandan 2: Mup da doo. Dem shoos mine")
+                                    print ("Wakandan 1: Nuh un")
+                                    print ("Wakandan 3: OOOOGA BOOOOGA")
+                                    print ("The Wakandans all beat eachother into unconsciousness, there were never any shoes")
+                                    wipipodispo = 3
+                            if answer == 3:
+                                if DNG > 8:
+                                    print ("Wakandans: Mufugguh")
+                                    print("The Wakandans are amazed and give you a loan as tribute. You leave the bar with full DONG")
+                                    loans = loans +1
+                                    dong = DNG
+                                if DNG < 9:
+                                    print ("Wakandans: HAHAHAHAHA")
+                                    print ("Your DONG deflates, and you leave the bar in embarassment")
+                                    dong = 0
+                            if answer == 4:
+                                if DNG > 1:
+                                    print ("Bar Tender: Today only, we are having a drinking competition. The rules are simple: Drink beer without puking, and face trivia and challenges allong the way. The reigning champ was Nigerius Liberius, who made it to round 6. Beat that, and you will receive a prize")
+                                    drinkingcomp()
+                                    dong = DNG
+                        answer = 0
+                    if answer == 3:
+                        print ("You whip out your DONG and leave the tavern")
+                    answer = 0
+            if answer == 3:
+                print ("The townsfolk are fed up with your shenanigans and constant diddling, you are attacked by a mob")
+                racewar(9,5)
+                answer = 0
+            if answer == 4:
+                ##content needed##
+                answer = 0
+ch4roaming()
 
