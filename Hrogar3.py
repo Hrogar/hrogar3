@@ -237,6 +237,7 @@ def racewar(enemy,amount):
         global ritalin
         global level
         global STR
+        global INT
         global DNG
         global exp
         global loans
@@ -286,7 +287,7 @@ def racewar(enemy,amount):
                             print ("Your DONG is not working")
             if answer == 5:
                     if gun == 1:
-                        damage = random.randrange(35,50,1)
+                        damage = random.randrange(20,25*INT,1)
                         enemyhp=enemyhp-damage
                         print ("You use your DRILLDO for ", damage, "damage")
             if enemyhp < 1:
