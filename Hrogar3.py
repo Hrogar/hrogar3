@@ -200,13 +200,35 @@ def racewar(enemy,amount):
                 enemystr=15
                 enemydng=1*amount
                 enemyxp=5*amount
-        if enemy == 11:
+        if enemy == 12:
                 print ("You have been challenged to battle by ", amount, "DoppleHrogar")
-                #Drunken Peasant#
+                #Dopple Hrogar#
                 enemyhp=health
-                enemystr=STR
+                enemystr=STR+3
                 enemydng=DNG
                 enemyxp=9*amount
+        if enemy == 13:
+                print ("You have been challenged to battle by ", amount, "Abomination")
+                #Nigglet#
+                enemyhp=6*amount
+                enemystr=1
+                enemydng=1
+                enemyxp=9
+        if enemy == 14:
+                print ("You have been challenged to battle by ", amount, "Coalburna")
+                #DCoalburna#
+                enemyhp=200
+                enemystr=21
+                enemydng=1
+                enemyxp=20
+        if enemy == 15:
+                print ("You have been challenged to battle by the king of kangs, NIGGUS GIGGUS")
+                #NIGGUS GIGGUS#
+                enemyhp=500
+                enemystr=45
+                enemydng=1
+                enemyxp=50
+        answer = input("1.OKAY")      
         global hp
         global health
         global dong
@@ -218,6 +240,7 @@ def racewar(enemy,amount):
         global DNG
         global exp
         global loans
+        global gun
         answer = 0
         battleoutcome = 0
         while battleoutcome == 0:
@@ -228,6 +251,8 @@ def racewar(enemy,amount):
             print ("2. Use Cialis for DONG (",cialis, ") remaining")
             print ("3. Use Ritalin for health (",ritalin, ") remaining")
             print ("4. Use DONG for special attack")
+            if gun == 1:
+                print ("5. Use DRILLDO")
             answer = int(input())
             if answer == 1:
                 damage = random.randrange(0,STR+1,1)
@@ -259,6 +284,11 @@ def racewar(enemy,amount):
                         dong = dong - 1
                     if dong < 1:
                             print ("Your DONG is not working")
+            if answer == 5:
+                    if gun == 1:
+                        damage = random.randrange(35,50,1)
+                        enemyhp=enemyhp-damage
+                        print ("You use your DRILLDO for ", damage, "damage")
             if enemyhp < 1:
                 print ("You have defeated the enemy")
                 print ("Exp Gained: ", enemyxp)
@@ -531,6 +561,7 @@ if race == 1:
     print ("Oh, so you are a Nord then? The Longnoses and Wakandans wont take kindly to you")
     print ()
 AP = 16
+##Change back to 16 when done testing##
 print ("Points Left: ", AP)
 while INT < 1 or INT > 10:
     INT = int(input("Pick intelligence(1 to 10). Intelligence determines how you can persuade, and how quickly you level"))
@@ -669,6 +700,7 @@ print ("Bonermere: let us rest, there will be much to do tomorrow")
 print ("Beanman: Now hold up. Hrogar, how about we cross DONGs in a sparring match before bed? I will let you lay with my goat afterwards, so you will be healed. No, no, I insist!")
 racewar(3, 1)
 print ("End of Chapter 1")
+answer = input("1.OKAY")
 hp = health
 dong = DNG
 playerstats()
@@ -801,6 +833,7 @@ racewar(6,1)
 print ("You defeat Nigerius Liberius and return to Beanman's Shack to mourn Bonermere")
 print ("End of Chapter 2")
 print ()
+answer = input("1.OKAY")
 ##saveGame(3)##
 ##End of Chapter 2##
 
@@ -855,6 +888,7 @@ if answer == 2:
         print ("Ethota: HAHAHAHAHA. You should be embarassed. I will beat you for your pathetic attempt at me")
         racewar(8,1)
 print ("End of Chapter 3")
+answer = input("1.OKAY")
 playerstats()
 print()
 ##End of Chapter 3##
@@ -959,10 +993,11 @@ def drinkingcomp():
                     print ("You puke like a bitch, and are raped in the confusion")
                     competition = 0
                 if pukechance <10:
-                    print("You have won and have received a GUN as a reward")
+                    print("You have won and have received a DRILLDO as a reward")
                     gun = 1
+                    competition = 0
             round = round + 1
-def ch3roaming():
+def ch4roaming():
         global hp
         global health
         global dong
@@ -989,7 +1024,7 @@ def ch3roaming():
             if answer == 2:
                     print ("You visit your favorite tavern, the DONG Forrest Tavern, and take a seat. You notice some Wakandan gaurdsmen are being rowdy and chimping out at the bartender")
                     answer = 0
-                    while answer > 3 or answer < 1:
+                    while answer > 4 or answer < 1:
                         print ("What to do?")
                         print ("1. [2 Loans] Order drink")
                         print ("2. Confront Wakandans")
@@ -1044,21 +1079,53 @@ def ch3roaming():
                                     print ("Wakandans: HAHAHAHAHA")
                                     print ("Your DONG deflates, and you leave the bar in embarassment")
                                     dong = 0
-                            if answer == 4:
-                                if DNG > 1:
-                                    print ("Bar Tender: Today only, we are having a drinking competition. The rules are simple: Drink beer without puking, and face trivia and challenges allong the way. The reigning champ was Nigerius Liberius, who made it to round 6. Beat that, and you will receive a prize")
-                                    drinkingcomp()
-                                    dong = DNG
+
                         answer = 0
                     if answer == 3:
                         print ("You whip out your DONG and leave the tavern")
+                    if answer == 4:
+                        if DNG > 1:
+                                print ("Bar Tender: Today only, we are having a drinking competition. The rules are simple: Drink beer without puking, and face trivia and challenges allong the way. The reigning champ was Nigerius Liberius, who made it to round 6. Beat that, and you will receive a prize")
+                                drinkingcomp()
                     answer = 0
             if answer == 3:
                 print ("The townsfolk are fed up with your shenanigans and constant diddling, you are attacked by a mob")
-                racewar(9,5)
+                racewar(9,3)
                 answer = 0
             if answer == 4:
-                ##content needed##
-                answer = 0
+                print ("You go to Coalburna's tower and enter the gates")
+                answer = 1
 ch4roaming()
-
+print ("The tower is dark, chicken bones litter the floor. A cackle echoes through the halls: 'I see you have entered my palace Hrogar, as so many Wakandans have done before you. You will now face my army of bucks and illigitamate mullatos")
+racewar (2,2)
+print ("You find some pills laying around and progress higher in the tower")
+cialis = cialis +1
+ritalin = ritalin +1
+racewar(2,3)
+print ("From the Wakandans, you loot a ritalin, you travel to the 3rd floor")
+ritalin = ritalin +1
+racewar(5,2)
+print ("You travel onwards, and find a goat to lay with")
+hp = health
+dong = DNG
+print("At the final chamber, you find Coalburna, who attacks you with her abominations")
+racewar(13,20)
+print("Coalburna lets out a massive BRAP as she attacks")
+racewar(14,1)
+if gun ==1:
+    print("Having defeated the witch, your DRILLDO delivers a finishing blow")
+    gun = 1
+print("You return to Beanman")
+nswer = input("1.OKAY")
+beanman()
+playerstats()
+print("End of Chapter 4")
+answer = input("1.OKAY")
+print()
+##End of CHapter 4##
+##Chapter 5##
+print ("Chapter 5: NIGGUS GIGGUS")
+print ("After your many fights against the Wakandans, their hold on the territory of Charlottesvisle has become weak. Beanman's shack is destroyed by a collosus and you look up to see the commander of the Wakandans himself . . . . . . . . . NIGGUS GIGGUS!")
+racewar(15,1)
+print("And so, the Wakandans, cut off from their GIBS, were unable to sustain their gibsocracy, and slowly starved. Section 8 returned to being Charlottesvisle, and with its recapture, all of Buttholia eventually became free again.")
+print ("You have won HROGAR 3: Queefs of Change")
