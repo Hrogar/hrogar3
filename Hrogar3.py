@@ -34,6 +34,8 @@ y=1
 yes = 1
 n = 2
 no = 2
+doggo=0
+neoconcheck = 0
 wakandandispo = loaded["ebtPoints"] if len(loaded) > 0 else -1
 longnosedispo = loaded["cutPoints"] if len(loaded) > 0 else -2
 wipipodispo = loaded["uncutPoints"] if len(loaded) > 0 else 2
@@ -217,17 +219,38 @@ def racewar(enemy,amount):
         if enemy == 14:
                 print ("You have been challenged to battle by ", amount, "Coalburna")
                 #DCoalburna#
-                enemyhp=200
+                enemyhp=200*amount
                 enemystr=24
                 enemydng=1
                 enemyxp=20
         if enemy == 15:
                 print ("You have been challenged to battle by the king of kangs, NIGGUS GIGGUS")
                 #NIGGUS GIGGUS#
-                enemyhp=500
-                enemystr=45
+                enemyhp=650*amount
+                enemystr=50
                 enemydng=1
                 enemyxp=50
+        if enemy == 16:
+                print ("You have been challenged to battle by ", amount, "Fupanoceros")
+                #Fupanoceros#
+                enemyhp=300*amount
+                enemystr=10
+                enemydng=1
+                enemyxp=10
+        if enemy == 17:
+                print ("You have been challenged to battle by ", amount, "Neocon")
+                #Neocon#
+                enemyhp=80*amount
+                enemystr=15
+                enemydng=1
+                enemyxp=3*amount
+        if enemy == 18:
+                print ("You have been challenged to battle by ", amount, "George H.W. Acorn Pecker")
+                #Neocon#
+                enemyhp=200
+                enemystr=25
+                enemydng=1
+                enemyxp=10
         answer = input("1.OKAY")      
         global hp
         global health
@@ -242,6 +265,7 @@ def racewar(enemy,amount):
         global exp
         global loans
         global gun
+        global doggo
         answer = 0
         battleoutcome = 0
         while battleoutcome == 0:
@@ -259,6 +283,10 @@ def racewar(enemy,amount):
                 damage = random.randrange(0,STR*2-1,1)
                 enemyhp=enemyhp-damage
                 print ("You shank the enemy for ", damage, " damage")
+                if doggo ==1:
+                    doggodamage = random.randrange(0,STR,1)
+                    enemyhp = enemyhp - doggodamage
+                    print ("Frisky Pete attacks with his DONG for ", doggodamage, " damage")
             if answer ==2:
                     if cialis > 0:
                         dong=dong+5
@@ -268,6 +296,10 @@ def racewar(enemy,amount):
                         print ("DONG restored to ", dong, "inches")
                     if cialis == 0:
                         print ("You have no cialis")
+                    if doggo ==1:
+                        doggodamage = random.randrange(0,STR,1)
+                        enemyhp = enemyhp - doggodamage
+                        print ("Frisky Pete attacks with his DONG for ", doggodamage, " damage")
             if answer ==3:
                     if ritalin > 0:
                         hp=hp+50
@@ -277,19 +309,31 @@ def racewar(enemy,amount):
                         print ("health restored to ", hp, "points")
                     if ritalin == 0:
                         print ("You have no ritalin")
+                    if doggo ==1:
+                        doggodamage = random.randrange(0,STR,1)
+                        enemyhp = enemyhp - doggodamage
+                        print ("Frisky Pete attacks with his DONG for ", doggodamage, " damage")
             if answer == 4:
                     if dong >0:
-                        damage = random.randrange(4,STR*4+1,1)
+                        damage = random.randrange(STR,STR*3+20,1)
                         enemyhp=enemyhp-damage
                         print ("You use your dong for ", damage, "damage")
                         dong = dong - 1
                     if dong < 1:
                             print ("Your DONG is not working")
+                    if doggo ==1:
+                        doggodamage = random.randrange(0,STR,1)
+                        enemyhp = enemyhp - doggodamage
+                        print ("Frisky Pete attacks with his DONG for ", doggodamage, " damage")
             if answer == 5:
                     if gun == 1:
                         damage = random.randrange(20,30*INT,1)
                         enemyhp=enemyhp-damage
                         print ("You use your DRILLDO for ", damage, "damage")
+                    if doggo ==1:
+                        doggodamage = random.randrange(0,STR,1)
+                        enemyhp = enemyhp - doggodamage
+                        print ("Frisky Pete attacks with his DONG for ", doggodamage, " damage")
             if enemyhp < 1:
                 print ("You have defeated the enemy")
                 print ("Exp Gained: ", enemyxp)
@@ -297,11 +341,11 @@ def racewar(enemy,amount):
                 coinss = random.randrange(0,enemyxp*2,1)
                 print ("You have gained ", coinss, " loans")
                 loans = loans + coinss
-                while exp > (17-INT):
+                while exp > (16-INT):
                         print ("You have leveled up")
                         level = level + 1
-                        exp = exp - (17-INT)
-                        strboost = random.randrange(0,2,1)
+                        exp = exp - (16-INT)
+                        strboost = random.randrange(1,3,1)
                         hpboost = random.randrange(1,8,1)
                         dngboost = math.floor(random.randrange(0,6,1)/5)
                         print ("DONG: +", dngboost)
@@ -745,7 +789,7 @@ if answer == 3:
         print ("Beanman tosses you some pills")
         cialis = cialis + 2
         ritalin = ritalin + 1
-        racewarspl (2,3)
+        racewarspl (2,7)
         wakandandispo = wakandandispo - 1
         print ("Nigerius knocks you unconscious with his DONG and you are taken to prison")
         prison = 1
@@ -1117,7 +1161,7 @@ if gun ==1:
     print("Having defeated the witch, your DRILLDO delivers a finishing blow")
     gun = 1
 print("You return to Beanman")
-nswer = input("1.OKAY")
+answer = input("1.OKAY")
 beanman()
 playerstats()
 print("End of Chapter 4")
@@ -1126,7 +1170,229 @@ print()
 ##End of CHapter 4##
 ##Chapter 5##
 print ("Chapter 5: NIGGUS GIGGUS")
-print ("After your many fights against the Wakandans, their hold on the territory of Charlottesvisle has become weak. Beanman's shack is destroyed by a collosus and you look up to see the commander of the Wakandans himself . . . . . . . . . NIGGUS GIGGUS!")
+print ("With the death of Coalburna and her legion of bucks, you have delt a major blow to the Wakandan forces. You are eager to tell the news to Ethota, as she may touch your DONG. You become very tired, and fall asleep on some goatshit at Beanman's, your nostrils filled with the smell of ammonia. A voice calls to you")
+print ("Bonermere: Hrogar")
+answer = 0
+while answer > 2 or answer < 1:
+    print ("1. Bonermere? Is that you")
+    print ("2. I have inhaled too much goat fumes")
+    print ("3. *Show DONG*")
+    answer = int(input())
+    if answer ==3:
+        print ("Bonermere: No, no, that isnt necessary")
+if answer ==1:
+    print ("Bonermere: It is in fact the spirit of Bonermere, come from beyond the grave")
+if answer ==2:
+    print ("Bonermere: You have, but that is not why I am here, I have come to warn you.")
+print ("Bonermere: I have watched from the heavens, and your actions have gotten the attention of the kang of the Wakandans, Niggus Giggus himself. Hrogar, he is no ordinary Wakandan, he has been cornfed since birth and given longnose ancestry. He is much like Lenny or Barrack in this respect. You may have an impressive DONG, but he will literally crush you with his girth")
+answer = 0
+while answer > 2 or answer < 1:
+    print ("1. It is not matter, I will DONG him all the same")
+    print ("2. What can I do to defeat this monstrosity?")
+    answer = int(input())
+if answer ==1:
+    print ("Bonermere: You are vain and arrogant, this will be your undoing")
+if answer ==2:
+    if gun ==1:
+        print ("Bonermere: I will tell you. There are many things that will give you and edge on the infinite and unfathomable GIRTH of Niggus Giggus. You have already collected the DRILLDO, a powerful tool indeed, but there are others. Seek them, and you may be victorious. You could also just grind this shitty text game, that would work too.")
+    if gun ==0:
+        print ("Bonermere: I will tell you. There are many things that will give you and edge on the infinite and unfathomable GIRTH of Niggus Giggus. Seek them, and you may be victorious. You could also just grind this shitty text game, that would work too.")
+answer = 0
+doggo = 0
+while answer > 2 or answer < 1:
+    print ("1. Tell me more")
+    print ("2. How do I know you arent a Longnose and this is all trickery?")
+    answer = int(input())
+print("Bonermere: I must go now, I am in the middle of edging to Shrek 2, and I am quickly loosing WOOD. Don't forget, the queefer must awaken")
+def getdoggo():
+        global hp
+        global health
+        global dong
+        global dng
+        global cialis
+        global ritalin
+        global level
+        global STR
+        global DNG
+        global exp
+        global loans
+        global wipipodispo
+        global doggo
+        print(" You go to the alleyway, and are immediately attacked by some stray cats")
+        racewar(1,6)
+        print("Having disperse the cats, you find they were fighting over a bag of what appears to be cialis. Ingest the contents?")
+        answer = 0
+        while answer > 2 or answer < 1:
+            print ("1. Eat the pills")
+            print ("2. *Show DONG* and continue deeper into the alley")
+            answer = int(input())
+        if answer ==1:
+            print ("The cialis was really dear shit, how did you mess that up? Current DONG is now at 1 inch")
+            dong = 1
+        print ("You travel further into the alley, and are greeted by a dumpster. On closer inspection, the dumpster appears to be a collossal obese woman. From under her folds, you hear the sound of a whimper. Attack the woman?")
+        answer = 0
+        while answer > 2 or answer < 1:
+            print ("1. Attack Fatso")
+            print ("2. *Show DONG* and carefully back out of the alley")
+            answer = int(input())
+        if answer == 1:
+            racewar(16,1)
+            print ("You have defeated the Fupanoceros. From underneath it comes a doggo, who immediately begins getting friendly with your leg. He appears to want to follow you. You have gained a companion. His collar reads 'Frisky Pete' ")
+            doggo = 1
+def neocongang():
+        global hp
+        global health
+        global dong
+        global dng
+        global cialis
+        global ritalin
+        global level
+        global STR
+        global DNG
+        global exp
+        global loans
+        global wipipodispo
+        global doggo
+        global neocheck
+        answer = 0
+        while answer > 2 or answer < 1:
+            print ("1. Fight the cuckservatives")
+            print ("2. *Show DONG* and do other stuff")
+            answer = int(input())
+        if answer ==1:
+                print("The neocons come after you, talking about Israel as our ally or some shit")
+                racewar(17,3)
+                print ("The neocons arend done with you yet, more of them attack, after giving more power to the FED")
+                racewar(17,4)
+                print ("The bartender tosses you a 40oz Malt Liquor. You drink it and feel your health supercharged")
+                hp = health + 60
+                print ("George W. Acorn Pecker: Democrats are the real racists")
+                racewar(18,1)
+                print ("George W. Acorn Pecker: I had nothing to do with the WTC attacks")
+                print ("The Malt Liquor hardens your arteries, giving you a permanent boost to max health")
+                health = health + 40
+                neocheck = 1
+def ch5roaming():
+        global hp
+        global health
+        global dong
+        global dng
+        global cialis
+        global ritalin
+        global level
+        global STR
+        global DNG
+        global exp
+        global loans
+        global wipipodispo
+        global doggo
+        answer = 0
+        while answer > 5 or answer < 1:
+            print ("What to do?")
+            print ("1. Visit Beanman")
+            print ("2. Visit tavern")
+            print ("3. *Show DONG* to passerby")
+            print ("4. *Travel to the camp of Niggus Giggus and the elite Wakandan Watermellon Gaurd")
+            if doggo ==0:
+                print ("5. *investigate Alley")
+            answer = int(input())
+            if answer == 1:
+                    beanman()
+                    answer = 0
+            if answer == 2:
+                    print ("You visit your favorite tavern, the DONG Forrest Tavern, and take a seat. You notice a wanted poster on the wall.")
+                    answer = 0
+                    while answer > 4 or answer < 1:
+                        print ("What to do?")
+                        print ("1. [2 Loans] Order drink")
+                        print ("2. Confront Wakandans")
+                        print ("3. *Show DONG* and leave")
+                        if gun ==0:
+                            print ("4. Compete in drinking competition")
+                        if gun == 1:
+                            print ("4. Ask about wanted poster")
+                        answer = int(input())
+                    if answer == 1:
+                        if loans >1:
+                            loans = loans - 2
+                            dong = DNG
+                            hp = health
+                            print ("Gritty, but refreshing. You forget where you are and leave the tavern")
+                            answer = 0
+                        if loans < 2:
+                            print ("You are too poor, you are kicked out of the tavern")
+                            answer = 0
+                    if answer == 2:
+                        print ("Wakandan: Hunnit EBT (State your business here, Nord)")
+                        answer = 0
+                        while answer > 3 or answer < 1:
+                            print ("1. Fight me, spearchuckers")
+                            if INT > 4:
+                                print ("2. [INT] Bicycle hi-point muh dick menthol whomadaddy (I have in my possession one pair of air jordans, and will gibs it to whoever among you is the last standing when you fight to the death for them")
+                            if INT < 5:
+                                print ("2. Leave bar")
+                            print ("3. *Show DONG*")
+                            answer = int(input())
+                            if answer ==1:
+                                racewar (5,6)
+                                print(" The Wakandans yell something about kangz and leave the bar. You get a free drink from the bartender, which you finish in peace and leave")
+                                hp = health
+                                dong = DNG
+                                wipipodispo = 3
+                            if answer == 2:
+                                if INT < 5:
+                                    print ("You leave the bar and are mugged on the way out for all of your loans")
+                                    loans = 0
+                                if INT > 4:
+                                    print ("Wakandan 1: Muffuga? No sheyit?")
+                                    print ("Wakandan 2: Mup da doo. Dem shoos mine")
+                                    print ("Wakandan 1: Nuh un")
+                                    print ("Wakandan 3: OOOOGA BOOOOGA")
+                                    print ("The Wakandans all beat eachother into unconsciousness, there were never any shoes")
+                                    wipipodispo = 3
+                            if answer == 3:
+                                if DNG > 8:
+                                    print ("Wakandans: Mufugguh")
+                                    print("The Wakandans are amazed and give you a loan as tribute. You leave the bar with full DONG")
+                                    loans = loans +1
+                                    dong = DNG
+                                if DNG < 9:
+                                    print ("Wakandans: HAHAHAHAHA")
+                                    print ("Your DONG deflates, and you leave the bar in embarassment")
+                                    dong = 0
+
+                        answer = 0
+                    if answer == 3:
+                        print ("You whip out your DONG and leave the tavern")
+                    if answer == 4:
+                        if gun ==0:
+                            if DNG > 0:
+                                    print ("Bar Tender: Today only, we are having a drinking competition. The rules are simple: Drink beer without puking, and face trivia and challenges allong the way. The reigning champ was Nigerius Liberius, who made it to round 6. Beat that, and you will receive a prize")
+                                    drinkingcomp()
+                        if gun ==1:
+                            if neocheck ==0:
+                                    print ("Bartender: Ah, it is the champion of our drinking competition. I may have use of someone with you skills. There is a bandit over at that table, a Nord like yourself. They call him George W. Acorn Pecker. Him and his gang have profiteered from this war by selling DONG girtheners to the Wakandans, allowing them to devastate our goats. Ethota has put a bounty of 0 loans on his head. Cheap slut. Anyways, he is over there, but gaurded by his band of Neocons")
+                                    ##Keep writing here, need to write about gang for DONG Extension##
+                                    neocongang()
+                            if neocheck ==1:
+                                    print("You have already gotten rid of the neocons")
+                    answer = 0
+            if answer == 3:
+                print ("The townsfolk are fed up with your shenanigans and constant diddling, you are attacked by a large and angry mob")
+                racewar(9,5)
+                answer = 0
+            if answer == 4:
+                print ("You prepare go to the camp of Niggus Giggus, visiting Beanman one last time")
+                answer = 1
+            if answer == 5:
+                if doggo ==1:
+                    answer = 0
+                if doggo ==0:
+                    getdoggo()
+                    answer = 0
+ch5roaming()
+print ("After your many fights against the Wakandans, their hold on the territory of Charlottesvisle has become weak. Beanman's shack is destroyed by a collosus before you can leave and you look up to see the commander of the Wakandans himself . . . . . . . . . NIGGUS GIGGUS!")
+    
 racewar(15,1)
 print("And so, the Wakandans, cut off from their GIBS, were unable to sustain their gibsocracy, and slowly starved. Section 8 returned to being Charlottesvisle, and with its recapture, all of Buttholia eventually became free again.")
 print ("You have won HROGAR 3: Queefs of Change")
