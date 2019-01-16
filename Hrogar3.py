@@ -218,7 +218,7 @@ def racewar(enemy,amount):
                 print ("You have been challenged to battle by ", amount, "Coalburna")
                 #DCoalburna#
                 enemyhp=200
-                enemystr=21
+                enemystr=24
                 enemydng=1
                 enemyxp=20
         if enemy == 15:
@@ -256,7 +256,7 @@ def racewar(enemy,amount):
                 print ("5. Use DRILLDO")
             answer = int(input())
             if answer == 1:
-                damage = random.randrange(0,STR+1,1)
+                damage = random.randrange(0,STR*2-1,1)
                 enemyhp=enemyhp-damage
                 print ("You shank the enemy for ", damage, " damage")
             if answer ==2:
@@ -279,7 +279,7 @@ def racewar(enemy,amount):
                         print ("You have no ritalin")
             if answer == 4:
                     if dong >0:
-                        damage = random.randrange(5,STR*5+1,1)
+                        damage = random.randrange(4,STR*4+1,1)
                         enemyhp=enemyhp-damage
                         print ("You use your dong for ", damage, "damage")
                         dong = dong - 1
@@ -287,7 +287,7 @@ def racewar(enemy,amount):
                             print ("Your DONG is not working")
             if answer == 5:
                     if gun == 1:
-                        damage = random.randrange(20,25*INT,1)
+                        damage = random.randrange(20,30*INT,1)
                         enemyhp=enemyhp-damage
                         print ("You use your DRILLDO for ", damage, "damage")
             if enemyhp < 1:
@@ -297,12 +297,12 @@ def racewar(enemy,amount):
                 coinss = random.randrange(0,enemyxp*2,1)
                 print ("You have gained ", coinss, " loans")
                 loans = loans + coinss
-                while exp > (15-INT):
+                while exp > (17-INT):
                         print ("You have leveled up")
                         level = level + 1
-                        exp = exp - (15-INT)
-                        strboost = random.randrange(1,3,1)
-                        hpboost = random.randrange(1,5,1)
+                        exp = exp - (17-INT)
+                        strboost = random.randrange(0,2,1)
+                        hpboost = random.randrange(1,8,1)
                         dngboost = math.floor(random.randrange(0,6,1)/5)
                         print ("DONG: +", dngboost)
                         print ("Strength: +",strboost)
@@ -640,7 +640,7 @@ if answer ==1:
 if answer ==2:
         print ("And I would have been first, if it werent for that damned Chris Hansen")
 if answer ==3:
-        print ("Bonermere: It has been too long, Chartlottesvisle has become a shit hole. We must get you to a doctor. There is only one left in town, I will take you to him, for a price")
+        print ("Bonermere: It has been too long, Chartlottesvisle has become a shit hole. We must get you to a doctor. There is only one left in town, I will take you to him and we can reminisce about diddling")
 if answer ==4:
         if DNG >5:
                 print ("Bonermere: I can see that prison has not done anything to dampen your spirits, haha")
