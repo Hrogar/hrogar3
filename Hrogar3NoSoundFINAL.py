@@ -1397,3 +1397,4 @@ print ("After your many fights against the Wakandans, their hold on the territor
 racewar(15,1)
 print("And so, the Wakandans, cut off from their GIBS, were unable to sustain their gibsocracy, and slowly starved. Section 8 returned to being Charlottesvisle, and with its recapture, all of Buttholia eventually became free again.")
 print ("You have won HROGAR 3: Queefs of Change")
+answer = int(input())
